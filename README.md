@@ -2,7 +2,7 @@
 
 Hello! This is a more advanced type of building for WHITEWALK
 
-![Bar chart showing sales growth](./images/Inuse.png)
+![In use.](./images/Inuse.png)
 
 ## KEYBINDS
 R and T to rotate papers.
