@@ -1,8 +1,9 @@
 # Advanced Building AND Import From Studio
+## Quick Warning: DO NOT USE ADVANCED BUILDING OR IMPORT FROM STUDIO AND ASK FOR ARCHITECT, KEEP ARCHITECT FOR THE PEOPLE WHO CAN BUILD WITH THE REAL SYSTEM
 
 # Advanced Building:
 
-Hello! This is a more advanced type of building for WHITEWALK
+Hello! This is a more advanced type of building for WHITEWALK.
 
 ![In use.](https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/Inuse.png)
 
