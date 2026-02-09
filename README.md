@@ -1,4 +1,6 @@
-# Advanced Building
+# Advanced Building AND Import From Studio
+
+# Advanced Building:
 
 Hello! This is a more advanced type of building for WHITEWALK
 
@@ -32,3 +34,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingreb
 You need an executor to run the code.
 If you don't have one, use Solara. (This script has been fully tested in Solara.)
 [SOLARA](https://getsolara.dev/)
+
+# Import From Studio:
+
+Download [this](https://github.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/blob/main/WHITEWALKBuilder.rbxl) rbxl file.
+
+Hard to explain, will post a tutorial soon.
