@@ -1,0 +1,580 @@
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local toggle = false
+local adjtoggle = false
+local gridtoggle = false
+local rs = game:GetService("RunService")
+local storedp = plr:FindFirstChild("StoredPapers")
+local storedpd = plr:FindFirstChild("StoredPapersDelay")
+local uis = game:GetService("UserInputService")
+local placing = false
+local Remotes = game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
+local rayResult = nil
+
+local tempfold = Instance.new("Folder")
+tempfold.Parent = workspace
+tempfold.Name = "Temporary"
+
+local buildatfeetpart = Instance.new("Part")
+buildatfeetpart.Parent = workspace
+buildatfeetpart.Size = Vector3.new(1000,0.001,1000)
+buildatfeetpart.Position = char.HumanoidRootPart.Position + Vector3.new(0,-3.05,0)
+buildatfeetpart.Anchored = true
+buildatfeetpart.CanCollide = false
+buildatfeetpart.CanQuery = false
+buildatfeetpart.CanTouch = false
+buildatfeetpart.Transparency = 1
+
+local gridpart = Instance.new("Part")
+gridpart.Parent = workspace
+gridpart.Size = Vector3.new(1000,0.001,1000)
+gridpart.Anchored = true
+gridpart.CanCollide = false
+gridpart.CanQuery = false
+gridpart.CanTouch = false
+gridpart.Transparency = 1
+
+local Texture = Instance.new("Texture")
+Texture.Face = Enum.NormalId.Bottom
+Texture.StudsPerTileU = 8
+Texture.StudsPerTileV = 8
+Texture.Texture = "rbxassetid://1500988270"
+Texture.Parent = gridpart
+
+local Texture_1 = Instance.new("Texture")
+Texture_1.Face = Enum.NormalId.Top
+Texture_1.StudsPerTileU = 8
+Texture_1.StudsPerTileV = 8
+Texture_1.Texture = "rbxassetid://1500988270"
+Texture_1.Parent = gridpart
+
+local rayend = Instance.new("Part")
+rayend.Parent = game.ReplicatedStorage
+rayend.Anchored = true
+rayend.CanCollide = false
+rayend.Size = Vector3.new(4,0.1,3)
+rayend.TopSurface = Enum.SurfaceType.Smooth
+rayend.BottomSurface = Enum.SurfaceType.Smooth
+rayend.Color = Color3.new(0.79, 0.80, 0.82)
+
+local adup = Instance.new("Part")
+adup.Name = "AdjU"
+adup.Parent = tempfold
+adup.Size = Vector3.new(0.5,0.5,1)
+adup.Transparency = 0.5
+adup.CanCollide = false
+adup.Anchored = true
+adup.Color = Color3.new(0,1,0)
+local adleft = Instance.new("Part")
+adleft.Name = "AdjL"
+adleft.Parent = tempfold
+adleft.Size = Vector3.new(1,0.5,0.5)
+adleft.Transparency = 0.5
+adleft.CanCollide = false
+adleft.Anchored = true
+adleft.Color = Color3.new(0,1,0)
+local adright = Instance.new("Part")
+adright.Name = "AdjR"
+adright.Parent = tempfold
+adright.Size = Vector3.new(1,0.5,0.5)
+adright.Transparency = 0.5
+adright.CanCollide = false
+adright.Anchored = true
+adright.Color = Color3.new(0,1,0)
+local addown = Instance.new("Part")
+addown.Name = "AdjD"
+addown.Parent = tempfold
+addown.Size = Vector3.new(0.5,0.5,1)
+addown.Transparency = 0.5
+addown.CanCollide = false
+addown.Anchored = true
+addown.Color = Color3.new(0,1,0)
+
+local Decalr = Instance.new("Decal")
+Decalr.Color3 = Color3.new(0.00, 0.00, 0.00)
+Decalr.Face = Enum.NormalId.Top
+Decalr.Texture = "rbxassetid://115929304045144"
+Decalr.Parent = rayend
+
+print("LOADING...")
+
+local BuildHelper = Instance.new("ScreenGui")
+BuildHelper.Name = "BuildHelper"
+BuildHelper.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+BuildHelper.Parent = plr.PlayerGui
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0.31, 0.00, 0.80, 0.00)
+Frame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Frame.Position = UDim2.new(0.32, 0.00, 0.10, 0.00)
+Frame.BorderSizePixel = 0
+Frame.BackgroundTransparency = 1
+Frame.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Frame.Parent = BuildHelper
+Frame.Visible = false
+
+local Frame_1 = Instance.new("Frame")
+Frame_1.Size = UDim2.new(0.83, 0.00, 0.87, 0.00)
+Frame_1.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Frame_1.Position = UDim2.new(-0.67, 0.00, 0.06, 0.00)
+Frame_1.BorderSizePixel = 0
+Frame_1.BackgroundTransparency = 0.6000000238418579
+Frame_1.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+Frame_1.Parent = Frame
+
+local BuildAtFeet = Instance.new("Folder")
+BuildAtFeet.Name = "BuildAtFeet"
+BuildAtFeet.Parent = Frame_1
+
+local Btn = Instance.new("TextButton")
+Btn.Name = "Btn"
+Btn.TextWrapped = true
+Btn.BorderSizePixel = 0
+Btn.TextScaled = true
+Btn.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
+Btn.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Btn.TextSize = 14
+Btn.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+Btn.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Btn.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Btn.Text = "Toggle"
+Btn.Position = UDim2.new(0.68, 0.00, 0.02, 0.00)
+Btn.Parent = BuildAtFeet
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = Btn
+
+local Text = Instance.new("TextLabel")
+Text.Name = "Text"
+Text.TextWrapped = true
+Text.BorderSizePixel = 0
+Text.TextScaled = true
+Text.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Text.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Text.TextSize = 14
+Text.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+Text.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Text.Text = "Build at Feet"
+Text.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Text.BackgroundTransparency = 1
+Text.Position = UDim2.new(0.02, 0.00, 0.02, 0.00)
+Text.Parent = BuildAtFeet
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = Text
+
+local Adjacent = Instance.new("Folder")
+Adjacent.Name = "Adjacent"
+Adjacent.Parent = Frame_1
+
+local BtnR = Instance.new("TextButton")
+BtnR.Name = "BtnR"
+BtnR.TextWrapped = true
+BtnR.BorderSizePixel = 0
+BtnR.TextScaled = true
+BtnR.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
+BtnR.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnR.TextSize = 14
+BtnR.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+BtnR.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+BtnR.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BtnR.Text = "Toggle"
+BtnR.Position = UDim2.new(0.68, 0.00, 0.11, 0.00)
+BtnR.Parent = Adjacent
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = BtnR
+
+local TextR = Instance.new("TextLabel")
+TextR.Name = "TextR"
+TextR.TextWrapped = true
+TextR.BorderSizePixel = 0
+TextR.TextScaled = true
+TextR.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextR.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextR.TextSize = 14
+TextR.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+TextR.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextR.Text = "Adjacent Paper"
+TextR.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TextR.BackgroundTransparency = 1
+TextR.Position = UDim2.new(0.02, 0.00, 0.11, 0.00)
+TextR.Parent = Adjacent
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = TextR
+
+local Snap = Instance.new("Folder")
+Snap.Name = "Snap"
+Snap.Parent = Frame_1
+
+local TextS = Instance.new("TextLabel")
+TextS.Name = "TextS"
+TextS.TextWrapped = true
+TextS.BorderSizePixel = 0
+TextS.TextScaled = true
+TextS.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextS.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextS.TextSize = 14
+TextS.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+TextS.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextS.Text = "Snap to Grid"
+TextS.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TextS.BackgroundTransparency = 1
+TextS.Position = UDim2.new(0.02, 0.00, 0.20, 0.00)
+TextS.Parent = Snap
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = TextS
+
+local TextBoxS = Instance.new("TextBox")
+TextBoxS.Name = "TextBoxS"
+TextBoxS.TextWrapped = true
+TextBoxS.BorderSizePixel = 3
+TextBoxS.TextScaled = true
+TextBoxS.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextBoxS.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextBoxS.TextSize = 14
+TextBoxS.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+TextBoxS.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+TextBoxS.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextBoxS.Text = "0.25"
+TextBoxS.Position = UDim2.new(0.68, 0.00, 0.20, 0.00)
+TextBoxS.Parent = Snap
+
+local Grid = Instance.new("Folder")
+Grid.Name = "Grid"
+Grid.Parent = Frame_1
+
+local BtnG = Instance.new("TextButton")
+BtnG.Name = "BtnG"
+BtnG.TextWrapped = true
+BtnG.BorderSizePixel = 3
+BtnG.TextScaled = true
+BtnG.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+BtnG.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnG.TextSize = 14
+BtnG.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+BtnG.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+BtnG.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BtnG.Text = "Place"
+BtnG.Position = UDim2.new(0.68, 0.00, 0.29, 0.00)
+BtnG.Parent = Grid
+
+local TextG = Instance.new("TextLabel")
+TextG.Name = "TextG"
+TextG.TextWrapped = true
+TextG.BorderSizePixel = 0
+TextG.TextScaled = true
+TextG.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextG.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextG.TextSize = 14
+TextG.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+TextG.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextG.Text = "Place Grid"
+TextG.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TextG.BackgroundTransparency = 1
+TextG.Position = UDim2.new(0.02, 0.00, 0.29, 0.00)
+TextG.Parent = Grid
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = TextG
+
+local Writing = Instance.new("Frame")
+Writing.Name = "Writing"
+Writing.AnchorPoint = Vector2.new(0.50, 0.50)
+Writing.Size = UDim2.new(0.84, 0.00, 1.00, 0.00)
+Writing.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Writing.Position = UDim2.new(0.58, 0.00, 0.50, 0.00)
+Writing.BorderSizePixel = 0
+Writing.BackgroundTransparency = 0.6000000238418579
+Writing.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+Writing.Parent = Frame
+Writing.Visible = true
+
+local Contents = Instance.new("TextBox")
+Contents.Name = "Contents"
+Contents.TextWrapped = true
+Contents.BorderSizePixel = 0
+Contents.TextYAlignment = Enum.TextYAlignment.Top
+Contents.TextScaled = true
+Contents.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Contents.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Contents.AnchorPoint = Vector2.new(0.50, 0.50)
+Contents.TextSize = 25
+Contents.Size = UDim2.new(0.92, 0.00, 0.88, 0.00)
+Contents.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+Contents.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Contents.Text = ""
+Contents.TextXAlignment = Enum.TextXAlignment.Left
+Contents.Position = UDim2.new(0.50, 0.00, 0.51, 0.00)
+Contents.Parent = Writing
+
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint.MaxTextSize = 50
+UITextSizeConstraint.Parent = Contents
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UIStroke_1.Color = Color3.new(0.67, 0.67, 0.67)
+UIStroke_1.Thickness = 2.4000000953674316
+UIStroke_1.Parent = Contents
+
+local UIPadding = Instance.new("UIPadding")
+UIPadding.PaddingBottom = UDim.new(0.00, 5.00)
+UIPadding.PaddingTop = UDim.new(0.00, 5.00)
+UIPadding.PaddingLeft = UDim.new(0.00, 5.00)
+UIPadding.PaddingRight = UDim.new(0.00, 5.00)
+UIPadding.Parent = Contents
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0.00, 4.00)
+UICorner.Parent = Contents
+
+local Submit = Instance.new("TextButton")
+Submit.Name = "Submit"
+Submit.TextWrapped = true
+Submit.BorderSizePixel = 0
+Submit.TextScaled = true
+Submit.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Submit.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Submit.AnchorPoint = Vector2.new(0.50, 0.00)
+Submit.TextSize = 14
+Submit.Size = UDim2.new(0.7, 0.00, 0.05, 0.00)
+Submit.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Submit.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Submit.Text = "place"
+Submit.BackgroundTransparency = 1
+Submit.Position = UDim2.new(0.50, 0.00, 0.96, 0.00)
+Submit.Parent = Writing
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = Submit
+
+local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint_1.MaxTextSize = 28
+UITextSizeConstraint_1.Parent = Submit
+
+local PaperCount = Instance.new("TextLabel")
+PaperCount.Name = "PaperCount"
+PaperCount.TextWrapped = true
+PaperCount.BorderSizePixel = 0
+PaperCount.TextScaled = true
+PaperCount.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+PaperCount.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+PaperCount.TextXAlignment = Enum.TextXAlignment.Left
+PaperCount.TextSize = 30
+PaperCount.Size = UDim2.new(0.67, 0.00, 0.07, 0.00)
+PaperCount.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+PaperCount.Text = "you have 10 papers available."
+PaperCount.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+PaperCount.BackgroundTransparency = 1
+PaperCount.Position = UDim2.new(0.00, 0.00, -0.00, 0.00)
+PaperCount.Parent = Writing
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.LineJoinMode = Enum.LineJoinMode.Miter
+UIStroke_1.Color = Color3.new(0.16, 0.16, 0.16)
+UIStroke_1.Thickness = 0.800000011920929
+UIStroke_1.Transparency = 0.2800000011920929
+UIStroke_1.Parent = PaperCount
+
+local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.PaddingBottom = UDim.new(0.00, 5.00)
+UIPadding_1.PaddingTop = UDim.new(0.00, 5.00)
+UIPadding_1.PaddingLeft = UDim.new(0.00, 5.00)
+UIPadding_1.PaddingRight = UDim.new(0.00, 5.00)
+UIPadding_1.Parent = Writing
+
+local Open = Instance.new("TextButton")
+Open.Name = "Open"
+Open.TextWrapped = true
+Open.BorderSizePixel = 0
+Open.TextScaled = true
+Open.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Open.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Open.TextSize = 14
+Open.Size = UDim2.new(0.14, 0.00, -0.035, 0.00)
+Open.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Open.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Open.Text = "build"
+Open.BackgroundTransparency = 1
+Open.Position = UDim2.new(0.007, 0.00, 0.616, 0.00)
+Open.TextXAlignment = Enum.TextXAlignment.Left
+Open.Parent = BuildHelper
+Open.TextTransparency = 0.37
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = Open
+
+function sendbackadj()
+    local down = CFrame.new(-100000,-100000,-100000)
+    adup.CFrame = down
+    adleft.CFrame = down
+    addown.CFrame = down
+    adright.CFrame = down
+end
+
+Open.MouseButton1Click:Connect(function()
+    toggle = not toggle
+    Frame.Visible = toggle
+    sendbackadj()
+end)
+
+Btn.MouseButton1Click:Connect(function()
+    baftoggle = not baftoggle
+    if baftoggle == true then
+        Btn.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+        buildatfeetpart.CanQuery = true
+        buildatfeetpart.CanTouch = true
+    else
+        Btn.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+        buildatfeetpart.CanQuery = false
+        buildatfeetpart.CanTouch = false
+    end
+end)
+
+BtnR.MouseButton1Click:Connect(function()
+    adjtoggle = not adjtoggle
+    if adjtoggle == true then
+        BtnR.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+    else
+        BtnR.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+        sendbackadj()
+    end
+end)
+
+BtnG.MouseButton1Click:Connect(function()
+    gridtoggle = true
+    Writing.Visible = false
+    placing = false
+end)
+
+Submit.MouseButton1Click:Connect(function()
+    if Contents.Text:match("^%s*$") then
+        Submit.Text = "Cannot submit empty text!"
+        task.wait(1)
+        Submit.Text = "place"
+    else
+        Writing.Visible = false
+        placing = true
+    end
+end)
+
+uis.InputBegan:Connect(function(inp,gpe)
+    if inp.KeyCode == Enum.KeyCode.R and gpe == false and placing == true then
+        rayend.CFrame *= CFrame.Angles(0,math.rad(45),0)
+    elseif inp.KeyCode == Enum.KeyCode.T and gpe == false and placing == true then
+        rayend.CFrame *= CFrame.Angles(0,0,math.rad(45))
+    elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and placing == true then
+        placing = false
+        Writing.Visible = true
+    elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and gridtoggle == true then
+        gridtoggle = false
+        Writing.Visible = true
+        gridpart.CanQuery = false
+        gridpart.CanTouch = false
+        gridpart.Position = Vector3.new(-1000,-100000,-1000)
+    end
+    if inp.UserInputType == Enum.UserInputType.MouseButton1 and gpe == false and placing == true and adjtoggle == false then
+        local temptxt = Contents.Text
+        local tempcf = rayend.CFrame
+        Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+        placing = false
+        Writing.Visible = true
+    elseif inp.UserInputType == Enum.UserInputType.MouseButton1 and gpe == false and placing == true and adjtoggle == true then
+        local mousePosition = plr:GetMouse()
+        local unitRay = workspace.Camera:ScreenPointToRay(mousePosition.X, mousePosition.Y)
+        local rayParams = RaycastParams.new()
+        rayParams.FilterType = Enum.RaycastFilterType.Exclude
+        rayParams.FilterDescendantsInstances = {rayend}
+        rayParams.IgnoreWater = true
+        rayResult = workspace:Raycast(unitRay.Origin, unitRay.Direction * 500, rayParams)
+        local inst = rayResult.Instance
+        if inst.Parent.Name == "Papers" and #inst:GetChildren() == 1 then
+            adup.CFrame = inst.CFrame
+            adleft.CFrame = inst.CFrame
+            addown.CFrame = inst.CFrame
+            adright.CFrame = inst.CFrame
+            adup.CFrame *= CFrame.new(-2,0,0)
+            adleft.CFrame *= CFrame.new(0,0,1.5)
+            addown.CFrame *= CFrame.new(2,0,0)
+            adright.CFrame *= CFrame.new(0,0,-1.5)
+        elseif inst.Name == "AdjU" then
+            local tempcf = inst.CFrame * CFrame.new(-2,0,0)
+            local temptxt = Contents.Text
+            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            sendbackadj()
+            placing = false
+            Writing.Visible = true
+        elseif inst.Name == "AdjL" then
+            local tempcf = inst.CFrame * CFrame.new(0,0,1.5)
+            local temptxt = Contents.Text
+            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            sendbackadj()
+            placing = false
+            Writing.Visible = true
+        elseif inst.Name == "AdjD" then
+            local tempcf = inst.CFrame * CFrame.new(2,0,0)
+            local temptxt = Contents.Text
+            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            sendbackadj()
+            placing = false
+            Writing.Visible = true
+        elseif inst.Name == "AdjR" then
+            local tempcf = inst.CFrame * CFrame.new(0,0,-1.5)
+            local temptxt = Contents.Text
+            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            sendbackadj()
+            placing = false
+            Writing.Visible = true
+        end
+    elseif inp.UserInputType == Enum.UserInputType.MouseButton1 and gpe == false and gridtoggle == true then
+        local mousePosition = plr:GetMouse()
+        local unitRay = workspace.Camera:ScreenPointToRay(mousePosition.X, mousePosition.Y)
+        local rayParams = RaycastParams.new()
+        rayParams.FilterType = Enum.RaycastFilterType.Exclude
+        rayParams.FilterDescendantsInstances = {rayend}
+        rayParams.IgnoreWater = true
+        rayResult = workspace:Raycast(unitRay.Origin, unitRay.Direction * 500, rayParams)
+        local inst = rayResult.Instance
+        if rayResult and inst.Parent.Name == "Papers" then
+            gridpart.CFrame = CFrame.lookAt(rayResult.Position,rayResult.Position + rayResult.Normal) * CFrame.Angles(math.rad(90),0,0)
+            gridpart.CanQuery = true
+            gridpart.CanTouch = true
+            gridtoggle = false
+            Writing.Visible = true
+        end
+    end
+end)
+
+rs.Heartbeat:Connect(function()
+    buildatfeetpart.Position = char.HumanoidRootPart.Position + Vector3.new(0,-3.02,0)
+    if storedp.Value <= 9 then
+        PaperCount.Text = "you have "..tostring(storedp.Value).." papers available. ".."("..tostring(storedpd.Value)..")"
+    else
+        PaperCount.Text = "you have "..tostring(storedp.Value).." papers available. (MAX)"
+    end
+    if placing == true and adjtoggle == false then
+        rayend.Parent = workspace
+        local mousePosition = plr:GetMouse()
+        local unitRay = workspace.Camera:ScreenPointToRay(mousePosition.X, mousePosition.Y)
+        local rayParams = RaycastParams.new()
+        rayParams.FilterType = Enum.RaycastFilterType.Exclude
+        rayParams.FilterDescendantsInstances = {rayend}
+        rayParams.IgnoreWater = true
+        rayResult = workspace:Raycast(unitRay.Origin, unitRay.Direction * 500, rayParams)
+        if rayResult then
+            local posb = Vector3.new(math.round(rayResult.Position.X/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Y/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Z/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text))
+            rayend.Position = posb
+        end
+    else
+        rayend.Parent = game.ReplicatedStorage
+    end
+end)
