@@ -11,14 +11,17 @@ X to cancel placement. (If you clicked Place Grid, X removes the grid.)
 ## Things it includes so far:
 ### Build At Feet:
 This lets you build on a grid under your feet, helping your building in the sky, making platforms 10x easier.
-BUILD AT FEET IS COMPATIBLE WITH THE REGULAR PLACEMENT SYSTEM OF NOTES
+
+*BUILD AT FEET IS COMPATIBLE WITH THE REGULAR PLACEMENT SYSTEM OF NOTES*
+
 ### Adjacent Paper
 Click on a paper to see 4 points you can make an adjacent paper to, will build another paper perfectly adjacent to it, great for walls.
 ### Snap to Grid
 Just set it to whatever number you want, and it'll snap.
 ### Place Grid
 Click on the Place button next to it, and click on any surface of a paper. It'll make a grid on that surface, letting you place easier.
-PLACE GRID IS COMPATIBLE WITH THE REGULAR PLACEMENT SYSTEM OF NOTES
+
+*PLACE GRID IS COMPATIBLE WITH THE REGULAR PLACEMENT SYSTEM OF NOTES*
 
 EXECUTE THIS CODE TO USE ADVANCED BUILDING
 ```lua
