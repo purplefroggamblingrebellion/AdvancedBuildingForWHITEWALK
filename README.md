@@ -37,6 +37,6 @@ If you don't have one, use Solara. (This script has been fully tested in Solara.
 
 # Import From Studio:
 
-Download [this](https://github.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/blob/main/WHITEWALKBuilder.rbxl) rbxl file.
+Download [this](https://github.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/raw/refs/heads/main/WHITEWALKBuilder.rbxl) rbxl file.
 
 Hard to explain, will post a tutorial soon.
