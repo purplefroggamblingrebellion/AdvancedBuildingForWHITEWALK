@@ -8,6 +8,8 @@ Hello! This is a more advanced type of building for WHITEWALK
 R and T to rotate papers.
 X to cancel placement. (If you clicked Place Grid, X removes the grid.)
 
+Clicking build opens and closes the building system. (build is located under the donate button)
+
 ## Things it includes so far:
 ### Build At Feet:
 This lets you build on a grid under your feet, helping your building in the sky, making platforms 10x easier.
