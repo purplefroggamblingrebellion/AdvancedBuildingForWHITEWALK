@@ -27,3 +27,6 @@ EXECUTE THIS CODE TO USE ADVANCED BUILDING
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/lua.txt"))()
 ```
+You need an executor to run the code.
+If you don't have one, use Solara. (This script has been fully tested in Solara.)
+[SOLARA](https://getsolara.dev/)
