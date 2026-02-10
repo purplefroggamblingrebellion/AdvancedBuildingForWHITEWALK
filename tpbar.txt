@@ -1,0 +1,110 @@
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local newThread
+local thread2
+
+
+
+local Open = Instance.new("TextButton")
+Open.Name = "Open"
+Open.TextWrapped = true
+Open.BorderSizePixel = 0
+Open.TextScaled = true
+Open.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Open.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Open.TextSize = 14
+Open.Size = UDim2.new(1.409, 0.00, -0.206, 0.00)
+Open.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Open.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Open.Text = "teleport"
+Open.BackgroundTransparency = 1
+Open.Position = UDim2.new(0, 0.00, 0, 0.00)
+Open.TextXAlignment = Enum.TextXAlignment.Left
+Open.Parent = plr.PlayerGui.UI.HUD.Sidebar
+Open.TextTransparency = 0.37
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = Open
+
+
+Open.MouseEnter:Connect(function()
+    Open.Font = Enum.Font.ArimoBold
+end)
+
+Open.MouseLeave:Connect(function()
+    Open.Font = Enum.Font.Arimo
+end)
+
+Open.MouseButton1Click:Connect(function()
+    char.Torso.Anchored = true
+    task.wait(0.1)
+    char.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(600000,0,0))
+    task.wait(0.5)
+    newThread = task.spawn(function()
+        char.HumanoidRootPart:GetPropertyChangedSignal("Position"):Connect(function()
+            char.Torso.Anchored = false
+            task.cancel(newThread)
+        end)
+    end)
+end)
+
+
+
+plr.CharacterAdded:Connect(function()
+plr:WaitForChild("PlayerGui"):WaitForChild("UI"):WaitForChild("HUD"):WaitForChild("Sidebar")
+task.wait(2)
+  thread2 = task.spawn(function()
+
+    local plr = game.Players.LocalPlayer
+    local char = plr.Character
+    local newThread
+
+    local Open = Instance.new("TextButton")
+    Open.Name = "Open"
+    Open.TextWrapped = true
+    Open.BorderSizePixel = 0
+    Open.TextScaled = true
+    Open.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+    Open.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+    Open.TextSize = 14
+    Open.Size = UDim2.new(1.409, 0.00, -0.206, 0.00)
+    Open.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+    Open.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+    Open.Text = "teleport"
+    Open.BackgroundTransparency = 1
+    Open.Position = UDim2.new(0, 0.00, 0, 0.00)
+    Open.TextXAlignment = Enum.TextXAlignment.Left
+    Open.Parent = plr.PlayerGui.UI.HUD.Sidebar
+    Open.TextTransparency = 0.37
+    
+    local UIStroke_1 = Instance.new("UIStroke")
+    UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+    UIStroke_1.Thickness = 1.2000000476837158
+    UIStroke_1.Transparency = 0.30000001192092896
+    UIStroke_1.Parent = Open
+    
+    Open.MouseEnter:Connect(function()
+        Open.Font = Enum.Font.ArimoBold
+    end)
+    
+    Open.MouseLeave:Connect(function()
+        Open.Font = Enum.Font.Arimo
+    end)
+    
+    Open.MouseButton1Click:Connect(function()
+        char.Torso.Anchored = true
+        task.wait(0.1)
+        char.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(600000,0,0))
+        task.wait(0.5)
+        newThread = task.spawn(function()
+            char.HumanoidRootPart:GetPropertyChangedSignal("Position"):Connect(function()
+                char.Torso.Anchored = false
+                task.cancel(newThread)
+            end)
+        end)
+    end)
+  end)
+end)
