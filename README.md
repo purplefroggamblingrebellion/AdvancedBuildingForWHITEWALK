@@ -25,6 +25,13 @@ Click on a paper to see 4 points you can make an adjacent paper to, will build a
 Just set it to whatever number you want, and it'll snap.
 ### Place Grid
 Click on the Place button next to it, and click on any surface of a paper. It'll make a grid on that surface, letting you place easier.
+The grid is black, so you wont be able to see it if the sky is black or you have black fog, use Better Sky to change this.
+### Better Sky
+Click on the Pick button, and a new skybox settings menu opens up.
+Time Of Day: Changes the time depending on the number in the text box next to it. If empty, Time Of Day is 12.
+Fog End: Changes the end length of the fog depending on the number, higher number = less fog, lower = more fog. If empty, Fog End is 10000.
+Brightness: Changes the brightness, 2 is the default brightness in WHITEWALK. If empty, Brightness is 2.
+There are many skyboxes to choose from as well.
 
 *PLACE GRID IS COMPATIBLE WITH THE REGULAR PLACEMENT SYSTEM OF NOTES*
 
