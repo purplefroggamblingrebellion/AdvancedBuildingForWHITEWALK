@@ -22,6 +22,15 @@ local clocktim = 12
 local fogend = 10000
 local brightnes = 2
 local fogcolor = Color3.new(0,0,0)
+local rotatesnap = 45
+
+local soundconfirm = Instance.new("Sound")
+soundconfirm.SoundId = "rbxassetid://127327064337609"
+soundconfirm.Parent = game.SoundService
+
+local soundrotate = Instance.new("Sound")
+soundrotate.SoundId = "rbxassetid://140575067138420"
+soundrotate.Parent = game.SoundService
 
 local skyboxes = {
     ["Sky1"] = {"rbxasset://sky/null_plainsky512_up.jpg","rbxasset://sky/null_plainsky512_dn.jpg","rbxasset://sky/null_plainsky512_lf.jpg","rbxasset://sky/null_plainsky512_rt.jpg","rbxasset://sky/null_plainsky512_ft.jpg","rbxasset://sky/null_plainsky512_bk.jpg"},
@@ -338,8 +347,43 @@ TextSk.BackgroundTransparency = 1
 TextSk.Position = UDim2.new(0.02, 0.00, 0.39, 0.00)
 TextSk.Parent = Sky
 
+local RotationSnap = Instance.new("Folder")
+RotationSnap.Name = "RotationSnap"
+RotationSnap.Parent = Frame_1
+
+local TextRs = Instance.new("TextLabel")
+TextRs.Name = "TextRs"
+TextRs.TextWrapped = true
+TextRs.BorderSizePixel = 0
+TextRs.TextScaled = true
+TextRs.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextRs.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextRs.TextSize = 14
+TextRs.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+TextRs.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextRs.Text = "Rotation Snap"
+TextRs.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TextRs.BackgroundTransparency = 1
+TextRs.Position = UDim2.new(0.02, 0.00, 0.48, 0.00)
+TextRs.Parent = RotationSnap
+
 local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = TextSk
+UIStroke.Parent = TextRs
+
+local TextBoxRs = Instance.new("TextBox")
+TextBoxRs.Name = "TextBoxRs"
+TextBoxRs.TextWrapped = true
+TextBoxRs.BorderSizePixel = 3
+TextBoxRs.TextScaled = true
+TextBoxRs.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextBoxRs.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextBoxRs.TextSize = 14
+TextBoxRs.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+TextBoxRs.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+TextBoxRs.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextBoxRs.Text = "45"
+TextBoxRs.Position = UDim2.new(0.68, 0.00, 0.48, 0.00)
+TextBoxRs.Parent = RotationSnap
 
 local SkyboxPicker = Instance.new("Frame")
 SkyboxPicker.Name = "SkyboxPicker"
@@ -860,14 +904,14 @@ Open.TextScaled = true
 Open.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
 Open.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 Open.TextSize = 14
-Open.Size = UDim2.new(0.14, 0.00, -0.035, 0.00)
+Open.Size = UDim2.new(1.409, 0.00, -0.206, 0.00)
 Open.TextColor3 = Color3.new(1.00, 1.00, 1.00)
 Open.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
 Open.Text = "build"
 Open.BackgroundTransparency = 1
-Open.Position = UDim2.new(0.007, 0.00, 0.616, 0.00)
+Open.Position = UDim2.new(0, 0.00, 0, 0.00)
 Open.TextXAlignment = Enum.TextXAlignment.Left
-Open.Parent = BuildHelper
+Open.Parent = plr.PlayerGui.UI.HUD.Sidebar
 Open.TextTransparency = 0.37
 
 local UIStroke_1 = Instance.new("UIStroke")
@@ -883,6 +927,14 @@ function sendbackadj()
     addown.CFrame = down
     adright.CFrame = down
 end
+
+Open.MouseEnter:Connect(function()
+    Open.Font = Enum.Font.ArimoBold
+end)
+
+Open.MouseLeave:Connect(function()
+    Open.Font = Enum.Font.Arimo
+end)
 
 Open.MouseButton1Click:Connect(function()
     toggle = not toggle
@@ -970,11 +1022,18 @@ Submit.MouseButton1Click:Connect(function()
     end
 end)
 
+function createPaper(temptxt,tempcf)
+    soundconfirm:Play()
+    Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+end
+
 uis.InputBegan:Connect(function(inp,gpe)
     if inp.KeyCode == Enum.KeyCode.R and gpe == false and placing == true then
-        rayend.CFrame *= CFrame.Angles(0,math.rad(45),0)
+        soundrotate:Play()
+        rayend.CFrame *= CFrame.Angles(0,math.rad(rotatesnap),0)
     elseif inp.KeyCode == Enum.KeyCode.T and gpe == false and placing == true then
-        rayend.CFrame *= CFrame.Angles(0,0,math.rad(45))
+        soundrotate:Play()
+        rayend.CFrame *= CFrame.Angles(0,0,math.rad(rotatesnap))
     elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and placing == true then
         placing = false
         sendbackadj()
@@ -989,7 +1048,7 @@ uis.InputBegan:Connect(function(inp,gpe)
     if inp.UserInputType == Enum.UserInputType.MouseButton1 and gpe == false and placing == true and adjtoggle == false then
         local temptxt = Contents.Text
         local tempcf = rayend.CFrame
-        Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+        createPaper(temptxt,tempcf)
         placing = false
         sendbackadj()
         Writing.Visible = true
@@ -1003,6 +1062,7 @@ uis.InputBegan:Connect(function(inp,gpe)
         rayResult = workspace:Raycast(unitRay.Origin, unitRay.Direction * 500, rayParams)
         local inst = rayResult.Instance
         if inst.Parent.Name == "Papers" and #inst:GetChildren() == 1 then
+            soundrotate:Play()
             adup.CFrame = inst.CFrame
             adleft.CFrame = inst.CFrame
             addown.CFrame = inst.CFrame
@@ -1014,28 +1074,28 @@ uis.InputBegan:Connect(function(inp,gpe)
         elseif inst.Name == "AdjU" then
             local tempcf = inst.CFrame * CFrame.new(-2,0,0)
             local temptxt = Contents.Text
-            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
             Writing.Visible = true
         elseif inst.Name == "AdjL" then
             local tempcf = inst.CFrame * CFrame.new(0,0,1.5)
             local temptxt = Contents.Text
-            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
             Writing.Visible = true
         elseif inst.Name == "AdjD" then
             local tempcf = inst.CFrame * CFrame.new(2,0,0)
             local temptxt = Contents.Text
-            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
             Writing.Visible = true
         elseif inst.Name == "AdjR" then
             local tempcf = inst.CFrame * CFrame.new(0,0,-1.5)
             local temptxt = Contents.Text
-            Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
+            createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
             Writing.Visible = true
@@ -1088,6 +1148,12 @@ rs.Heartbeat:Connect(function()
         else
             fogcolor = Color3.fromRGB((string.split(FogColorB.Text," "))[1],(string.split(FogColorB.Text," "))[2],(string.split(FogColorB.Text," "))[3])
         end
+    end
+    if tonumber(TextBoxRs.Text) then
+        rotatesnap = tonumber(TextBoxRs.Text)
+        print(rotatesnap)
+    else
+        rotatesnap = 45
     end
     if skyboxtog == true then
         workspace.Visuals.Skybox.Transparency = 1
