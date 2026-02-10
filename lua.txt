@@ -10,6 +10,28 @@ local uis = game:GetService("UserInputService")
 local placing = false
 local Remotes = game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
 local rayResult = nil
+local skyboxvis = false
+local skyboxtog = false
+local skyup = "http://www.roblox.com/asset/?ID=2013298"
+local skydown = "http://www.roblox.com/asset/?ID=2013298"
+local skyleft = "http://www.roblox.com/asset/?ID=2013298"
+local skyright = "http://www.roblox.com/asset/?ID=2013298"
+local skyfront = "http://www.roblox.com/asset/?ID=2013298"
+local skyback = "http://www.roblox.com/asset/?ID=2013298"
+local clocktim = 12
+local fogend = 10000
+local brightnes = 2
+
+local skyboxes = {
+    ["Sky1"] = {"rbxasset://sky/null_plainsky512_up.jpg","rbxasset://sky/null_plainsky512_dn.jpg","rbxasset://sky/null_plainsky512_lf.jpg","rbxasset://sky/null_plainsky512_rt.jpg","rbxasset://sky/null_plainsky512_ft.jpg","rbxasset://sky/null_plainsky512_bk.jpg"},
+    ["Sky2"] = {"http://www.roblox.com/asset/?ID=1361097","http://www.roblox.com/asset/?ID=1361097","http://www.roblox.com/asset/?ID=1361097","http://www.roblox.com/asset/?ID=1361097","http://www.roblox.com/asset/?ID=1361097","http://www.roblox.com/asset/?ID=1361097"},
+    ["Sky3"] = {"http://www.roblox.com/asset/?ID=2013298","http://www.roblox.com/asset/?ID=2013298","http://www.roblox.com/asset/?ID=2013298","http://www.roblox.com/asset/?ID=2013298","http://www.roblox.com/asset/?ID=2013298","http://www.roblox.com/asset/?ID=2013298"},
+    ["Sky4"] = {"http://www.roblox.com/asset/?version=1&id=1014449","http://www.roblox.com/asset/?version=1&id=1012891","http://www.roblox.com/asset/?version=1&id=1012889","http://www.roblox.com/asset/?version=1&id=1012888","http://www.roblox.com/asset/?version=1&id=1012887","http://www.roblox.com/asset/?version=1&id=1012890"},
+    ["Sky5"] = {"rbxassetid://600835177","rbxassetid://600831635","rbxassetid://600886090","rbxassetid://600833862","rbxassetid://600832720","rbxassetid://600830446"},
+    ["Sky6"] = {"http://www.roblox.com/asset/?id=166510114","http://www.roblox.com/asset/?id=166510057","http://www.roblox.com/asset/?id=166510092","http://www.roblox.com/asset/?id=166510131","http://www.roblox.com/asset/?id=166510116","http://www.roblox.com/asset/?id=166509999"},
+    ["Sky7"] = {"http://www.roblox.com/asset/?id=16262366016","http://www.roblox.com/asset/?id=16262358026","http://www.roblox.com/asset/?id=16262362003","http://www.roblox.com/asset/?id=16262363873","http://www.roblox.com/asset/?id=16262360469","http://www.roblox.com/asset/?id=16262356578"},
+    ["Sky8"] = {"rbxassetid://11336723758","rbxassetid://11336722286","rbxassetid://11336725016","rbxassetid://11336726887","rbxassetid://11336720418","rbxassetid://11336725935"},
+}
 
 local tempfold = Instance.new("Folder")
 tempfold.Parent = workspace
@@ -280,6 +302,397 @@ TextG.Parent = Grid
 local UIStroke = Instance.new("UIStroke")
 UIStroke.Parent = TextG
 
+local Sky = Instance.new("Folder")
+Sky.Name = "Sky"
+Sky.Parent = Frame_1
+
+local BtnSk = Instance.new("TextButton")
+BtnSk.Name = "BtnSk"
+BtnSk.TextWrapped = true
+BtnSk.BorderSizePixel = 3
+BtnSk.TextScaled = true
+BtnSk.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+BtnSk.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnSk.TextSize = 14
+BtnSk.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+BtnSk.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+BtnSk.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BtnSk.Text = "Pick"
+BtnSk.Position = UDim2.new(0.68, 0.00, 0.39, 0.00)
+BtnSk.Parent = Sky
+
+local TextSk = Instance.new("TextLabel")
+TextSk.Name = "TextSk"
+TextSk.TextWrapped = true
+TextSk.BorderSizePixel = 0
+TextSk.TextScaled = true
+TextSk.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextSk.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextSk.TextSize = 14
+TextSk.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+TextSk.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextSk.Text = " Better Sky"
+TextSk.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TextSk.BackgroundTransparency = 1
+TextSk.Position = UDim2.new(0.02, 0.00, 0.39, 0.00)
+TextSk.Parent = Sky
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = TextSk
+
+local SkyboxPicker = Instance.new("Frame")
+SkyboxPicker.Name = "SkyboxPicker"
+SkyboxPicker.Visible = false
+SkyboxPicker.AnchorPoint = Vector2.new(0.50, 0.50)
+SkyboxPicker.Size = UDim2.new(0.84, 0.00, 1.00, 0.00)
+SkyboxPicker.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+SkyboxPicker.Position = UDim2.new(0.58, 0.00, 0.50, 0.00)
+SkyboxPicker.BorderSizePixel = 0
+SkyboxPicker.BackgroundTransparency = 0.6000000238418579
+SkyboxPicker.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+SkyboxPicker.Parent = Frame
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.TextWrapped = true
+Title.BorderSizePixel = 0
+Title.TextScaled = true
+Title.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Title.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Title.TextSize = 14
+Title.Size = UDim2.new(1.00, 0.00, 0.08, 0.00)
+Title.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Title.Text = "Skybox Settings"
+Title.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Title.BackgroundTransparency = 1
+Title.Parent = SkyboxPicker
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke.Thickness = 1.2000000476837158
+UIStroke.Transparency = 0.30000001192092896
+UIStroke.Parent = Title
+
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint.MaxTextSize = 28
+UITextSizeConstraint.Parent = Title
+
+local Basic = Instance.new("Frame")
+Basic.Name = "Basic"
+Basic.Size = UDim2.new(0.92, 0.00, 0.15, 0.00)
+Basic.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Basic.Position = UDim2.new(0.04, 0.00, 0.15, 0.00)
+Basic.BorderSizePixel = 0
+Basic.BackgroundTransparency = 1
+Basic.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Basic.Parent = SkyboxPicker
+
+local BoxHalf = Instance.new("Frame")
+BoxHalf.Name = "BoxHalf"
+BoxHalf.Size = UDim2.new(0.50, 0.00, 1.00, 0.00)
+BoxHalf.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BoxHalf.Position = UDim2.new(0.50, 0.00, 0.00, 0.00)
+BoxHalf.BorderSizePixel = 0
+BoxHalf.BackgroundTransparency = 1
+BoxHalf.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+BoxHalf.Parent = Basic
+
+local UIListLayout = Instance.new("UIListLayout")
+UIListLayout.Padding = UDim.new(0.00, 10.00)
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Parent = BoxHalf
+
+local TimeOfDayB = Instance.new("TextBox")
+TimeOfDayB.Name = "TimeOfDayB"
+TimeOfDayB.BorderSizePixel = 0
+TimeOfDayB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+TimeOfDayB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TimeOfDayB.TextSize = 14
+TimeOfDayB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+TimeOfDayB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TimeOfDayB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TimeOfDayB.Text = ""
+TimeOfDayB.BackgroundTransparency = 0.5
+TimeOfDayB.Parent = BoxHalf
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = TimeOfDayB
+
+local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint_1.MaxTextSize = 20
+UITextSizeConstraint_1.MinTextSize = 20
+UITextSizeConstraint_1.Parent = TimeOfDayB
+
+local FogEndB = Instance.new("TextBox")
+FogEndB.Name = "FogEndB"
+FogEndB.BorderSizePixel = 0
+FogEndB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+FogEndB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FogEndB.TextSize = 14
+FogEndB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+FogEndB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+FogEndB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FogEndB.Text = ""
+FogEndB.BackgroundTransparency = 0.5
+FogEndB.Parent = BoxHalf
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = FogEndB
+
+local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint_1.MaxTextSize = 20
+UITextSizeConstraint_1.MinTextSize = 20
+UITextSizeConstraint_1.Parent = FogEndB
+
+local BrightnessB = Instance.new("TextBox")
+BrightnessB.Name = "BrightnessB"
+BrightnessB.BorderSizePixel = 0
+BrightnessB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+BrightnessB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BrightnessB.TextSize = 14
+BrightnessB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+BrightnessB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+BrightnessB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BrightnessB.Text = ""
+BrightnessB.BackgroundTransparency = 0.5
+BrightnessB.Parent = BoxHalf
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = BrightnessB
+
+local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint_1.MaxTextSize = 20
+UITextSizeConstraint_1.MinTextSize = 20
+UITextSizeConstraint_1.Parent = BrightnessB
+
+local TextHalf = Instance.new("Frame")
+TextHalf.Name = "TextHalf"
+TextHalf.Size = UDim2.new(0.50, 0.00, 1.00, 0.00)
+TextHalf.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextHalf.BorderSizePixel = 0
+TextHalf.BackgroundTransparency = 1
+TextHalf.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextHalf.Parent = Basic
+
+local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.Padding = UDim.new(0.00, 10.00)
+UIListLayout_1.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_1.Parent = TextHalf
+
+local TimeOfDay = Instance.new("TextLabel")
+TimeOfDay.Name = "TimeOfDay"
+TimeOfDay.TextWrapped = true
+TimeOfDay.BorderSizePixel = 0
+TimeOfDay.TextScaled = true
+TimeOfDay.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+TimeOfDay.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TimeOfDay.TextSize = 14
+TimeOfDay.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+TimeOfDay.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TimeOfDay.Text = "Time Of Day"
+TimeOfDay.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TimeOfDay.BackgroundTransparency = 1
+TimeOfDay.Parent = TextHalf
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = TimeOfDay
+
+local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint_1.MaxTextSize = 28
+UITextSizeConstraint_1.Parent = TimeOfDay
+
+local FogEnd = Instance.new("TextLabel")
+FogEnd.Name = "FogEnd"
+FogEnd.TextWrapped = true
+FogEnd.BorderSizePixel = 0
+FogEnd.TextScaled = true
+FogEnd.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+FogEnd.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FogEnd.TextSize = 14
+FogEnd.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+FogEnd.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FogEnd.Text = "Fog End"
+FogEnd.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+FogEnd.BackgroundTransparency = 1
+FogEnd.Parent = TextHalf
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = FogEnd
+
+local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint_1.MaxTextSize = 28
+UITextSizeConstraint_1.Parent = FogEnd
+
+local Brightness = Instance.new("TextLabel")
+Brightness.Name = "Brightness"
+Brightness.TextWrapped = true
+Brightness.BorderSizePixel = 0
+Brightness.TextScaled = true
+Brightness.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+Brightness.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Brightness.TextSize = 14
+Brightness.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+Brightness.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Brightness.Text = "Brightness"
+Brightness.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Brightness.BackgroundTransparency = 1
+Brightness.Parent = TextHalf
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke_1.Thickness = 1.2000000476837158
+UIStroke_1.Transparency = 0.30000001192092896
+UIStroke_1.Parent = Brightness
+
+local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint_1.MaxTextSize = 28
+UITextSizeConstraint_1.Parent = Brightness
+
+local ToggleSkybox = Instance.new("TextButton")
+ToggleSkybox.Name = "ToggleSkybox"
+ToggleSkybox.TextWrapped = true
+ToggleSkybox.BorderSizePixel = 0
+ToggleSkybox.TextScaled = true
+ToggleSkybox.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
+ToggleSkybox.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ToggleSkybox.TextSize = 14
+ToggleSkybox.Size = UDim2.new(0.19, 0.00, 0.05, 0.00)
+ToggleSkybox.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+ToggleSkybox.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ToggleSkybox.Text = "Toggle"
+ToggleSkybox.Position = UDim2.new(0.40, 0.00, 0.07, 0.00)
+ToggleSkybox.Parent = SkyboxPicker
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = ToggleSkybox
+
+local ScrollingFrame = Instance.new("ScrollingFrame")
+ScrollingFrame.Active = true
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+ScrollingFrame.Size = UDim2.new(0.92, 0.00, 0.64, 0.00)
+ScrollingFrame.ScrollBarImageColor3 = Color3.new(0.00, 0.00, 0.00)
+ScrollingFrame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ScrollingFrame.BackgroundTransparency = 0.800000011920929
+ScrollingFrame.Position = UDim2.new(0.04, 0.00, 0.33, 0.00)
+ScrollingFrame.Parent = SkyboxPicker
+
+local SkyboxesFolder = Instance.new("Folder")
+SkyboxesFolder.Name = "SkyboxesFolder"
+SkyboxesFolder.Parent = ScrollingFrame
+
+local Sky1 = Instance.new("ImageButton")
+Sky1.Name = "Sky1"
+Sky1.BorderSizePixel = 0
+Sky1.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky1.Image = "rbxassetid://15391855678"
+Sky1.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky1.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky1.Parent = SkyboxesFolder
+
+local UIGridLayout = Instance.new("UIGridLayout")
+UIGridLayout.CellPadding = UDim2.new(0.05, 0.00, 0.05, 0.00)
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellSize = UDim2.new(0.20, 0.00, 0.00, 100.00)
+UIGridLayout.Parent = SkyboxesFolder
+
+local Sky2 = Instance.new("ImageButton")
+Sky2.Name = "Sky2"
+Sky2.BorderSizePixel = 0
+Sky2.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky2.Image = "rbxassetid://6538721720"
+Sky2.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky2.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky2.Parent = SkyboxesFolder
+
+local Sky3 = Instance.new("ImageButton")
+Sky3.Name = "Sky3"
+Sky3.BorderSizePixel = 0
+Sky3.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky3.Image = "rbxassetid://1179108570"
+Sky3.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky3.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky3.Parent = SkyboxesFolder
+
+local Sky4 = Instance.new("ImageButton")
+Sky4.Name = "Sky4"
+Sky4.BorderSizePixel = 0
+Sky4.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky4.Image = "rbxassetid://1012890"
+Sky4.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky4.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky4.Parent = SkyboxesFolder
+
+local Sky5 = Instance.new("ImageButton")
+Sky5.Name = "Sky5"
+Sky5.BorderSizePixel = 0
+Sky5.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky5.Image = "rbxassetid://600832720"
+Sky5.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky5.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky5.Parent = SkyboxesFolder
+
+local Sky6 = Instance.new("ImageButton")
+Sky6.Name = "Sky6"
+Sky6.BorderSizePixel = 0
+Sky6.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky6.Image = "rbxassetid://166510116"
+Sky6.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky6.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky6.Parent = SkyboxesFolder
+
+local Sky7 = Instance.new("ImageButton")
+Sky7.Name = "Sky7"
+Sky7.BorderSizePixel = 0
+Sky7.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky7.Image = "rbxassetid://16262360469"
+Sky7.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky7.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky7.Parent = SkyboxesFolder
+
+local Sky8 = Instance.new("ImageButton")
+Sky8.Name = "Sky8"
+Sky8.BorderSizePixel = 0
+Sky8.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky8.Image = "rbxassetid://11336720418"
+Sky8.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky8.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky8.Parent = SkyboxesFolder
+
+local ExitSky = Instance.new("TextButton")
+ExitSky.Name = "ExitSky"
+ExitSky.TextWrapped = true
+ExitSky.BorderSizePixel = 0
+ExitSky.TextScaled = true
+ExitSky.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+ExitSky.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ExitSky.TextSize = 14
+ExitSky.Size = UDim2.new(0.10, 0.00, 0.07, 0.00)
+ExitSky.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+ExitSky.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ExitSky.Text = "X"
+ExitSky.BackgroundTransparency = 1
+ExitSky.Position = UDim2.new(0.90, 0.00, 0.00, 0.00)
+ExitSky.Parent = SkyboxPicker
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = ExitSky
+
 local Writing = Instance.new("Frame")
 Writing.Name = "Writing"
 Writing.AnchorPoint = Vector2.new(0.50, 0.50)
@@ -453,8 +866,48 @@ end)
 BtnG.MouseButton1Click:Connect(function()
     gridtoggle = true
     Writing.Visible = false
+    sendbackadj()
     placing = false
 end)
+
+BtnSk.MouseButton1Click:Connect(function()
+    SkyboxPicker.Visible = true
+    sendbackadj()
+    placing = false
+    Writing.Visible = false
+    gridtoggle = false
+end)
+
+ExitSky.MouseButton1Click:Connect(function()
+    SkyboxPicker.Visible = false
+    sendbackadj()
+    placing = false
+    Writing.Visible = true
+    gridtoggle = false
+end)
+
+ToggleSkybox.MouseButton1Click:Connect(function()
+    skyboxtog = not skyboxtog
+    if skyboxtog == true then
+        ToggleSkybox.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+    else
+        ToggleSkybox.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+    end
+end)
+
+for i,v in pairs(ScrollingFrame.SkyboxesFolder:GetChildren()) do
+    if v:IsA("ImageButton") then
+        v.MouseButton1Click:Connect(function()
+            local skyparam = skyboxes[v.Name]
+            skyup = skyparam[1]
+            skydown = skyparam[2]
+            skyleft = skyparam[3]
+            skyright = skyparam[4]
+            skyfront = skyparam[5]
+            skyback = skyparam[6]
+        end)
+    end
+end
 
 Submit.MouseButton1Click:Connect(function()
     if Contents.Text:match("^%s*$") then
@@ -474,6 +927,7 @@ uis.InputBegan:Connect(function(inp,gpe)
         rayend.CFrame *= CFrame.Angles(0,0,math.rad(45))
     elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and placing == true then
         placing = false
+        sendbackadj()
         Writing.Visible = true
     elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and gridtoggle == true then
         gridtoggle = false
@@ -487,6 +941,7 @@ uis.InputBegan:Connect(function(inp,gpe)
         local tempcf = rayend.CFrame
         Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
         placing = false
+        sendbackadj()
         Writing.Visible = true
     elseif inp.UserInputType == Enum.UserInputType.MouseButton1 and gpe == false and placing == true and adjtoggle == true then
         local mousePosition = plr:GetMouse()
@@ -556,6 +1011,36 @@ end)
 
 rs.Heartbeat:Connect(function()
     buildatfeetpart.Position = char.HumanoidRootPart.Position + Vector3.new(0,-3.02,0)
+    if TimeOfDayB.Text == "" then
+        clocktim = 12
+    else
+        clocktim = tonumber(TimeOfDayB.Text)
+    end
+    if FogEndB.Text == "" then
+        fogend = 10000
+    else
+        fogend = tonumber(FogEndB.Text)
+    end
+    if BrightnessB.Text == "" then
+        brightnes = 2
+    else
+        brightnes = tonumber(BrightnessB.Text)
+    end
+    if skyboxtog == true then
+        workspace.Visuals.Skybox.Transparency = 1
+        local Sky = game.Lighting.Sky
+        Sky.StarCount = 0
+        Sky.CelestialBodiesShown = false
+        Sky.SkyboxUp = skyup
+        Sky.SkyboxBk = skyback
+        Sky.SkyboxDn = skydown
+        Sky.SkyboxLf = skyleft
+        Sky.SkyboxFt = skyfront
+        Sky.SkyboxRt = skyright
+        game.Lighting.ClockTime = clocktim
+        game.Lighting.FogEnd = fogend
+        game.Lighting.Brightness = brightnes
+    end
     if storedp.Value <= 9 then
         PaperCount.Text = "you have "..tostring(storedp.Value).." papers available. ".."("..tostring(storedpd.Value)..")"
     else
