@@ -39,6 +39,8 @@ Click on the Pick button, and a new skybox settings menu opens up.
 
 There are many skyboxes to choose from as well.
 
+## ____________________________________________________________
+
 *PLACE GRID IS COMPATIBLE WITH THE REGULAR PLACEMENT SYSTEM OF NOTES*
 
 EXECUTE THIS CODE TO USE ADVANCED BUILDING
