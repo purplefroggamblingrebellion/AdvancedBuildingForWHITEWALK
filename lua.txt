@@ -42,6 +42,10 @@ local skyboxes = {
     ["Sky6"] = {"http://www.roblox.com/asset/?id=166510114","http://www.roblox.com/asset/?id=166510057","http://www.roblox.com/asset/?id=166510092","http://www.roblox.com/asset/?id=166510131","http://www.roblox.com/asset/?id=166510116","http://www.roblox.com/asset/?id=166509999"},
     ["Sky7"] = {"http://www.roblox.com/asset/?id=16262366016","http://www.roblox.com/asset/?id=16262358026","http://www.roblox.com/asset/?id=16262362003","http://www.roblox.com/asset/?id=16262363873","http://www.roblox.com/asset/?id=16262360469","http://www.roblox.com/asset/?id=16262356578"},
     ["Sky8"] = {"rbxassetid://11336723758","rbxassetid://11336722286","rbxassetid://11336725016","rbxassetid://11336726887","rbxassetid://11336720418","rbxassetid://11336725935"},
+    ["Sky9"] = {"http://www.roblox.com/asset/?id=442579055","http://www.roblox.com/asset/?id=442579012","http://www.roblox.com/asset/?id=442579226","http://www.roblox.com/asset/?id=442579158","http://www.roblox.com/asset/?id=442579184","http://www.roblox.com/asset/?id=442579118"},
+    ["Sky10"] = {"rbxassetid://88459308213437","rbxassetid://117003589797607","rbxassetid://132330407505752","rbxassetid://137981272047053","rbxassetid://128526893232764","rbxassetid://117003589797607"},
+    ["Sky11"] = {"http://www.roblox.com/asset/?id=154185031","http://www.roblox.com/asset/?id=154184960","http://www.roblox.com/asset/?id=154184943","http://www.roblox.com/asset/?id=154184972","http://www.roblox.com/asset/?id=154185021","http://www.roblox.com/asset/?id=154185004"},
+    ["Sky12"] = {"rbxassetid://9134791633","rbxassetid://9134791975","rbxassetid://9134791234","rbxassetid://9134790419","rbxassetid://9134793457","rbxassetid://9134792889"},
 }
 
 local tempfold = Instance.new("Folder")
@@ -812,6 +816,42 @@ Sky8.Image = "rbxassetid://11336720418"
 Sky8.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
 Sky8.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
 Sky8.Parent = SkyboxesFolder
+
+local Sky9 = Instance.new("ImageButton")
+Sky9.Name = "Sky9"
+Sky9.BorderSizePixel = 0
+Sky9.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky9.Image = "rbxassetid://442579184"
+Sky9.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky9.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky9.Parent = SkyboxesFolder
+
+local Sky10 = Instance.new("ImageButton")
+Sky10.Name = "Sky10"
+Sky10.BorderSizePixel = 0
+Sky10.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky10.Image = "rbxassetid://128526893232764"
+Sky10.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky10.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky10.Parent = SkyboxesFolder
+
+local Sky11 = Instance.new("ImageButton")
+Sky11.Name = "Sky11"
+Sky11.BorderSizePixel = 0
+Sky11.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky11.Image = "rbxassetid://154185021"
+Sky11.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky11.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky11.Parent = SkyboxesFolder
+
+local Sky12 = Instance.new("ImageButton")
+Sky12.Name = "Sky12"
+Sky12.BorderSizePixel = 0
+Sky12.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Sky12.Image = "rbxassetid://9134793457"
+Sky12.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
+Sky12.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Sky12.Parent = SkyboxesFolder
 
 local ExitSky = Instance.new("TextButton")
 ExitSky.Name = "ExitSky"
