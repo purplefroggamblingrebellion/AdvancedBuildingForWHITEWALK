@@ -21,6 +21,7 @@ local skyback = "http://www.roblox.com/asset/?ID=2013298"
 local clocktim = 12
 local fogend = 10000
 local brightnes = 2
+local fogcolor = Color3.new(0,0,0)
 
 local skyboxes = {
     ["Sky1"] = {"rbxasset://sky/null_plainsky512_up.jpg","rbxasset://sky/null_plainsky512_dn.jpg","rbxasset://sky/null_plainsky512_lf.jpg","rbxasset://sky/null_plainsky512_rt.jpg","rbxasset://sky/null_plainsky512_ft.jpg","rbxasset://sky/null_plainsky512_bk.jpg"},
@@ -474,6 +475,30 @@ UITextSizeConstraint_1.MaxTextSize = 20
 UITextSizeConstraint_1.MinTextSize = 20
 UITextSizeConstraint_1.Parent = BrightnessB
 
+local FogColorB = Instance.new("TextBox")
+FogColorB.Name = "FogColorB"
+FogColorB.BorderSizePixel = 0
+FogColorB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+FogColorB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FogColorB.TextSize = 14
+FogColorB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+FogColorB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+FogColorB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FogColorB.Text = ""
+FogColorB.BackgroundTransparency = 0.5
+FogColorB.Parent = BoxHalf
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke.Thickness = 1.2000000476837158
+UIStroke.Transparency = 0.30000001192092896
+UIStroke.Parent = FogColorB
+
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint.MaxTextSize = 20
+UITextSizeConstraint.MinTextSize = 20
+UITextSizeConstraint.Parent = FogColorB
+
 local TextHalf = Instance.new("Frame")
 TextHalf.Name = "TextHalf"
 TextHalf.Size = UDim2.new(0.50, 0.00, 1.00, 0.00)
@@ -563,6 +588,31 @@ local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
 UITextSizeConstraint_1.MaxTextSize = 28
 UITextSizeConstraint_1.Parent = Brightness
 
+local FogColor = Instance.new("TextLabel")
+FogColor.Name = "FogColor"
+FogColor.TextWrapped = true
+FogColor.BorderSizePixel = 0
+FogColor.TextScaled = true
+FogColor.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+FogColor.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FogColor.TextSize = 14
+FogColor.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
+FogColor.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FogColor.Text = "Fog Color"
+FogColor.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+FogColor.BackgroundTransparency = 1
+FogColor.Parent = TextHalf
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Color = Color3.new(0.29, 0.29, 0.29)
+UIStroke.Thickness = 1.2000000476837158
+UIStroke.Transparency = 0.30000001192092896
+UIStroke.Parent = FogColor
+
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+UITextSizeConstraint.MaxTextSize = 28
+UITextSizeConstraint.Parent = FogColor
+
 local ToggleSkybox = Instance.new("TextButton")
 ToggleSkybox.Name = "ToggleSkybox"
 ToggleSkybox.TextWrapped = true
@@ -585,11 +635,11 @@ local ScrollingFrame = Instance.new("ScrollingFrame")
 ScrollingFrame.Active = true
 ScrollingFrame.BorderSizePixel = 0
 ScrollingFrame.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-ScrollingFrame.Size = UDim2.new(0.92, 0.00, 0.64, 0.00)
+ScrollingFrame.Size = UDim2.new(0.923, 0.00, 0.597, 0.00)
 ScrollingFrame.ScrollBarImageColor3 = Color3.new(0.00, 0.00, 0.00)
 ScrollingFrame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
 ScrollingFrame.BackgroundTransparency = 0.800000011920929
-ScrollingFrame.Position = UDim2.new(0.04, 0.00, 0.33, 0.00)
+ScrollingFrame.Position = UDim2.new(0.038, 0.00, 0.373, 0.00)
 ScrollingFrame.Parent = SkyboxPicker
 
 local SkyboxesFolder = Instance.new("Folder")
@@ -1026,6 +1076,19 @@ rs.Heartbeat:Connect(function()
     else
         brightnes = tonumber(BrightnessB.Text)
     end
+    if string.find(FogColorB.Text,",") then
+        if #(string.split(FogColorB.Text,",")) ~= 3 then
+            fogcolor = Color3.new(0,0,0)
+        else
+            fogcolor = Color3.fromRGB((string.split(FogColorB.Text,","))[1],(string.split(FogColorB.Text,","))[2],(string.split(FogColorB.Text,","))[3])
+        end
+    else
+        if #(string.split(FogColorB.Text," ")) ~= 3 then
+            fogcolor = Color3.new(0,0,0)
+        else
+            fogcolor = Color3.fromRGB((string.split(FogColorB.Text," "))[1],(string.split(FogColorB.Text," "))[2],(string.split(FogColorB.Text," "))[3])
+        end
+    end
     if skyboxtog == true then
         workspace.Visuals.Skybox.Transparency = 1
         local Sky = game.Lighting.Sky
@@ -1039,6 +1102,7 @@ rs.Heartbeat:Connect(function()
         Sky.SkyboxRt = skyright
         game.Lighting.ClockTime = clocktim
         game.Lighting.FogEnd = fogend
+        game.Lighting.FogColor = fogcolor
         game.Lighting.Brightness = brightnes
     end
     if storedp.Value <= 9 then
