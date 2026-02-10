@@ -23,6 +23,7 @@ local fogend = 10000
 local brightnes = 2
 local fogcolor = Color3.new(0,0,0)
 local rotatesnap = 45
+local showtext = true
 
 local soundconfirm = Instance.new("Sound")
 soundconfirm.SoundId = "rbxassetid://127327064337609"
@@ -164,7 +165,7 @@ Btn.TextWrapped = true
 Btn.BorderSizePixel = 0
 Btn.TextScaled = true
 Btn.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
-Btn.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Btn.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 Btn.TextSize = 14
 Btn.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
 Btn.TextColor3 = Color3.new(1.00, 1.00, 1.00)
@@ -182,7 +183,7 @@ Text.TextWrapped = true
 Text.BorderSizePixel = 0
 Text.TextScaled = true
 Text.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Text.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Text.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 Text.TextSize = 14
 Text.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
 Text.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -205,7 +206,7 @@ BtnR.TextWrapped = true
 BtnR.BorderSizePixel = 0
 BtnR.TextScaled = true
 BtnR.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
-BtnR.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnR.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 BtnR.TextSize = 14
 BtnR.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
 BtnR.TextColor3 = Color3.new(1.00, 1.00, 1.00)
@@ -223,7 +224,7 @@ TextR.TextWrapped = true
 TextR.BorderSizePixel = 0
 TextR.TextScaled = true
 TextR.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextR.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextR.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 TextR.TextSize = 14
 TextR.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
 TextR.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -246,7 +247,7 @@ TextS.TextWrapped = true
 TextS.BorderSizePixel = 0
 TextS.TextScaled = true
 TextS.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextS.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextS.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 TextS.TextSize = 14
 TextS.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
 TextS.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -265,7 +266,7 @@ TextBoxS.TextWrapped = true
 TextBoxS.BorderSizePixel = 3
 TextBoxS.TextScaled = true
 TextBoxS.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextBoxS.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextBoxS.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 TextBoxS.TextSize = 14
 TextBoxS.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
 TextBoxS.TextColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -284,7 +285,7 @@ BtnG.TextWrapped = true
 BtnG.BorderSizePixel = 3
 BtnG.TextScaled = true
 BtnG.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-BtnG.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnG.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 BtnG.TextSize = 14
 BtnG.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
 BtnG.TextColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -299,7 +300,7 @@ TextG.TextWrapped = true
 TextG.BorderSizePixel = 0
 TextG.TextScaled = true
 TextG.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextG.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextG.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 TextG.TextSize = 14
 TextG.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
 TextG.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -322,7 +323,7 @@ BtnSk.TextWrapped = true
 BtnSk.BorderSizePixel = 3
 BtnSk.TextScaled = true
 BtnSk.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-BtnSk.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnSk.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 BtnSk.TextSize = 14
 BtnSk.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
 BtnSk.TextColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -337,7 +338,7 @@ TextSk.TextWrapped = true
 TextSk.BorderSizePixel = 0
 TextSk.TextScaled = true
 TextSk.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextSk.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextSk.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 TextSk.TextSize = 14
 TextSk.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
 TextSk.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -346,6 +347,9 @@ TextSk.TextColor3 = Color3.new(1.00, 1.00, 1.00)
 TextSk.BackgroundTransparency = 1
 TextSk.Position = UDim2.new(0.02, 0.00, 0.39, 0.00)
 TextSk.Parent = Sky
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = TextSk
 
 local RotationSnap = Instance.new("Folder")
 RotationSnap.Name = "RotationSnap"
@@ -357,7 +361,7 @@ TextRs.TextWrapped = true
 TextRs.BorderSizePixel = 0
 TextRs.TextScaled = true
 TextRs.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextRs.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextRs.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 TextRs.TextSize = 14
 TextRs.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
 TextRs.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -376,7 +380,7 @@ TextBoxRs.TextWrapped = true
 TextBoxRs.BorderSizePixel = 3
 TextBoxRs.TextScaled = true
 TextBoxRs.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextBoxRs.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextBoxRs.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 TextBoxRs.TextSize = 14
 TextBoxRs.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
 TextBoxRs.TextColor3 = Color3.new(0.00, 0.00, 0.00)
@@ -384,6 +388,47 @@ TextBoxRs.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
 TextBoxRs.Text = "45"
 TextBoxRs.Position = UDim2.new(0.68, 0.00, 0.48, 0.00)
 TextBoxRs.Parent = RotationSnap
+
+local ShowText = Instance.new("Folder")
+ShowText.Name = "ShowText"
+ShowText.Parent = Frame_1
+
+local BtnSt = Instance.new("TextButton")
+BtnSt.Name = "BtnSt"
+BtnSt.TextWrapped = true
+BtnSt.BorderSizePixel = 0
+BtnSt.TextScaled = true
+BtnSt.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+BtnSt.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnSt.TextSize = 14
+BtnSt.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+BtnSt.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+BtnSt.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BtnSt.Text = "Toggle"
+BtnSt.Position = UDim2.new(0.68, 0.00, 0.57, 0.00)
+BtnSt.Parent = ShowText
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = BtnSt
+
+local TextSt = Instance.new("TextLabel")
+TextSt.Name = "TextSt"
+TextSt.TextWrapped = true
+TextSt.BorderSizePixel = 0
+TextSt.TextScaled = true
+TextSt.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextSt.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextSt.TextSize = 14
+TextSt.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+TextSt.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextSt.Text = "Show Text"
+TextSt.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TextSt.BackgroundTransparency = 1
+TextSt.Position = UDim2.new(0.02, 0.00, 0.57, 0.00)
+TextSt.Parent = ShowText
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = TextSt
 
 local SkyboxPicker = Instance.new("Frame")
 SkyboxPicker.Name = "SkyboxPicker"
@@ -663,7 +708,7 @@ ToggleSkybox.TextWrapped = true
 ToggleSkybox.BorderSizePixel = 0
 ToggleSkybox.TextScaled = true
 ToggleSkybox.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
-ToggleSkybox.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ToggleSkybox.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 ToggleSkybox.TextSize = 14
 ToggleSkybox.Size = UDim2.new(0.19, 0.00, 0.05, 0.00)
 ToggleSkybox.TextColor3 = Color3.new(1.00, 1.00, 1.00)
@@ -774,7 +819,7 @@ ExitSky.TextWrapped = true
 ExitSky.BorderSizePixel = 0
 ExitSky.TextScaled = true
 ExitSky.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-ExitSky.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ExitSky.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 ExitSky.TextSize = 14
 ExitSky.Size = UDim2.new(0.10, 0.00, 0.07, 0.00)
 ExitSky.TextColor3 = Color3.new(1.00, 1.00, 1.00)
@@ -988,6 +1033,25 @@ ExitSky.MouseButton1Click:Connect(function()
     gridtoggle = false
 end)
 
+BtnSt.MouseButton1Click:Connect(function()
+    showtext = not showtext
+    if showtext == true then
+        BtnSt.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+        for i,v in pairs(workspace.Papers:GetChildren()) do
+            if v:FindFirstChild("SurfaceGui") then
+                v:FindFirstChild("SurfaceGui").TextLabel.Visible = true
+            end
+        end
+    else
+        BtnSt.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+        for i,v in pairs(workspace.Papers:GetChildren()) do
+            if v:FindFirstChild("SurfaceGui") then
+                v:FindFirstChild("SurfaceGui").TextLabel.Visible = false
+            end
+        end
+    end
+end)
+
 ToggleSkybox.MouseButton1Click:Connect(function()
     skyboxtog = not skyboxtog
     if skyboxtog == true then
@@ -1151,7 +1215,6 @@ rs.Heartbeat:Connect(function()
     end
     if tonumber(TextBoxRs.Text) then
         rotatesnap = tonumber(TextBoxRs.Text)
-        print(rotatesnap)
     else
         rotatesnap = 45
     end
@@ -1185,7 +1248,7 @@ rs.Heartbeat:Connect(function()
         rayParams.FilterDescendantsInstances = {rayend}
         rayParams.IgnoreWater = true
         rayResult = workspace:Raycast(unitRay.Origin, unitRay.Direction * 500, rayParams)
-        if rayResult then
+        if rayResult and tonumber(TextBoxS.Text) then
             local posb = Vector3.new(math.round(rayResult.Position.X/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Y/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Z/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text))
             rayend.Position = posb
         end
