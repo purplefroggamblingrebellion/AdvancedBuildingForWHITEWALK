@@ -39,6 +39,11 @@ Click on the Pick button, and a new skybox settings menu opens up.
 
 There are many skyboxes to choose from as well.
 
+### Rotation Snap
+Change the rotation snap to whatever you'd like.
+
+Default is 45.
+
 ### ⸻
 
 *PLACE GRID IS COMPATIBLE WITH THE REGULAR PLACEMENT SYSTEM OF NOTES*
