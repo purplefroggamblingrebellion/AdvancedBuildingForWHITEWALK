@@ -28,7 +28,14 @@ local fogend = 10000
 local brightnes = 2
 local fogcolor = Color3.new(0,0,0)
 local rotatesnap = 45
+local rotationsnapping = false
 local showtext = true
+local rotationx = 0
+local rotationy = 0
+local rotationz = 0
+local unitnormal
+local thingcf = CFrame.new(Vector3.new(0,0,0))
+local lastnormal
 
 local soundconfirm = Instance.new("Sound")
 soundconfirm.SoundId = "rbxassetid://127327064337609"
@@ -374,7 +381,7 @@ TextRs.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeig
 TextRs.TextSize = 14
 TextRs.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
 TextRs.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextRs.Text = "Rotation Snap"
+TextRs.Text = "Snap to Rotation"
 TextRs.TextColor3 = Color3.new(1.00, 1.00, 1.00)
 TextRs.BackgroundTransparency = 1
 TextRs.Position = UDim2.new(0.02, 0.00, 0.48, 0.00)
@@ -438,6 +445,47 @@ TextSt.Parent = ShowText
 
 local UIStroke_1 = Instance.new("UIStroke")
 UIStroke_1.Parent = TextSt
+
+local SnapRotation = Instance.new("Folder")
+SnapRotation.Name = "SnapRotation"
+SnapRotation.Parent = Frame_1
+
+local BtnSr = Instance.new("TextButton")
+BtnSr.Name = "BtnSr"
+BtnSr.TextWrapped = true
+BtnSr.BorderSizePixel = 0
+BtnSr.TextScaled = true
+BtnSr.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+BtnSr.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BtnSr.TextSize = 14
+BtnSr.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+BtnSr.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+BtnSr.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BtnSr.Text = "Toggle"
+BtnSr.Position = UDim2.new(0.68, 0.00, 0.66, 0.00)
+BtnSr.Parent = SnapRotation
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = BtnSr
+
+local TextSr = Instance.new("TextLabel")
+TextSr.Name = "TextSr"
+TextSr.TextWrapped = true
+TextSr.BorderSizePixel = 0
+TextSr.TextScaled = true
+TextSr.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TextSr.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+TextSr.TextSize = 14
+TextSr.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+TextSr.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TextSr.Text = "Rotation Snapping"
+TextSr.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+TextSr.BackgroundTransparency = 1
+TextSr.Position = UDim2.new(0.02, 0.00, 0.66, 0.00)
+TextSr.Parent = SnapRotation
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = TextSr
 
 local SkyboxPicker = Instance.new("Frame")
 SkyboxPicker.Name = "SkyboxPicker"
@@ -1097,6 +1145,15 @@ BtnSt.MouseButton1Click:Connect(function()
     end
 end)
 
+BtnSr.MouseButton1Click:Connect(function()
+    rotationsnapping = not rotationsnapping
+    if rotationsnapping == true then
+        BtnSr.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+    else
+        BtnSr.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+    end
+end)
+
 ToggleSkybox.MouseButton1Click:Connect(function()
     skyboxtog = not skyboxtog
     if skyboxtog == true then
@@ -1139,10 +1196,15 @@ end
 uis.InputBegan:Connect(function(inp,gpe)
     if inp.KeyCode == Enum.KeyCode.R and gpe == false and placing == true then
         soundrotate:Play()
-        rayend.CFrame *= CFrame.Angles(0,math.rad(rotatesnap),0)
+        thingcf *= CFrame.Angles(0,math.rad(rotatesnap),0)
     elseif inp.KeyCode == Enum.KeyCode.T and gpe == false and placing == true then
         soundrotate:Play()
-        rayend.CFrame *= CFrame.Angles(0,0,math.rad(rotatesnap))
+        thingcf *= CFrame.Angles(0,0,math.rad(rotatesnap))
+    elseif inp.KeyCode == Enum.KeyCode.U and gpe == false and placing == true then
+        soundrotate:Play()
+        rotationx = 0
+        rotationy = 0
+        rotationz = 0
     elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and placing == true then
         placing = false
         sendbackadj()
@@ -1294,8 +1356,15 @@ rs.Heartbeat:Connect(function()
         rayParams.IgnoreWater = true
         rayResult = workspace:Raycast(unitRay.Origin, unitRay.Direction * 500, rayParams)
         if rayResult and tonumber(TextBoxS.Text) then
+            unitnormal = rayResult.Normal
             local posb = Vector3.new(math.round(rayResult.Position.X/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Y/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Z/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text))
-            rayend.Position = posb
+            thingcf = CFrame.new(posb) * thingcf.Rotation
+            if unitnormal ~= lastnormal and rotationsnapping == true then
+                local newcrot = CFrame.lookAt(rayend.Position,rayend.Position + unitnormal) * CFrame.Angles(math.rad(-90),0,0)
+                thingcf = CFrame.new(thingcf.Position) * newcrot
+            end
+            rayend.CFrame = thingcf
+            lastnormal = unitnormal
         end
     else
         rayend.Parent = game.ReplicatedStorage
