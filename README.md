@@ -5,7 +5,7 @@
 
 Hello! This is a more advanced type of building for WHITEWALK.
 
-![In use.](https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/Inuse.png)
+![In use.](https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/screenshot.png)
 
 ## KEYBINDS
 R and T to rotate papers.
