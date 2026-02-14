@@ -149,648 +149,344 @@ print("LOADING...")
 
 local BuildHelper = Instance.new("ScreenGui")
 BuildHelper.Name = "BuildHelper"
+BuildHelper.IgnoreGuiInset = true
 BuildHelper.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+BuildHelper.ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
 BuildHelper.Parent = plr.PlayerGui
 
-local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0.31, 0.00, 0.80, 0.00)
-Frame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Frame.Position = UDim2.new(0.32, 0.00, 0.10, 0.00)
-Frame.BorderSizePixel = 0
-Frame.BackgroundTransparency = 1
-Frame.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Frame.Parent = BuildHelper
-Frame.Visible = false
-
-local Frame_1 = Instance.new("Frame")
-Frame_1.Size = UDim2.new(0.83, 0.00, 0.87, 0.00)
-Frame_1.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Frame_1.Position = UDim2.new(-0.67, 0.00, 0.06, 0.00)
-Frame_1.BorderSizePixel = 0
-Frame_1.BackgroundTransparency = 0.6000000238418579
-Frame_1.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-Frame_1.Parent = Frame
-
-local BuildAtFeet = Instance.new("Folder")
-BuildAtFeet.Name = "BuildAtFeet"
-BuildAtFeet.Parent = Frame_1
-
-local Btn = Instance.new("TextButton")
-Btn.Name = "Btn"
-Btn.TextWrapped = true
-Btn.BorderSizePixel = 0
-Btn.TextScaled = true
-Btn.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
-Btn.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Btn.TextSize = 14
-Btn.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-Btn.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-Btn.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Btn.Text = "Toggle"
-Btn.Position = UDim2.new(0.68, 0.00, 0.02, 0.00)
-Btn.Parent = BuildAtFeet
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = Btn
-
-local Text = Instance.new("TextLabel")
-Text.Name = "Text"
-Text.TextWrapped = true
-Text.BorderSizePixel = 0
-Text.TextScaled = true
-Text.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Text.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Text.TextSize = 14
-Text.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-Text.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Text.Text = "Build at Feet"
-Text.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-Text.BackgroundTransparency = 1
-Text.Position = UDim2.new(0.02, 0.00, 0.02, 0.00)
-Text.Parent = BuildAtFeet
-
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Parent = Text
-
-local Adjacent = Instance.new("Folder")
-Adjacent.Name = "Adjacent"
-Adjacent.Parent = Frame_1
-
-local BtnR = Instance.new("TextButton")
-BtnR.Name = "BtnR"
-BtnR.TextWrapped = true
-BtnR.BorderSizePixel = 0
-BtnR.TextScaled = true
-BtnR.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
-BtnR.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-BtnR.TextSize = 14
-BtnR.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-BtnR.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-BtnR.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-BtnR.Text = "Toggle"
-BtnR.Position = UDim2.new(0.68, 0.00, 0.11, 0.00)
-BtnR.Parent = Adjacent
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = BtnR
-
-local TextR = Instance.new("TextLabel")
-TextR.Name = "TextR"
-TextR.TextWrapped = true
-TextR.BorderSizePixel = 0
-TextR.TextScaled = true
-TextR.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextR.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextR.TextSize = 14
-TextR.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-TextR.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextR.Text = "Adjacent Paper"
-TextR.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TextR.BackgroundTransparency = 1
-TextR.Position = UDim2.new(0.02, 0.00, 0.11, 0.00)
-TextR.Parent = Adjacent
-
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Parent = TextR
-
-local Snap = Instance.new("Folder")
-Snap.Name = "Snap"
-Snap.Parent = Frame_1
-
-local TextS = Instance.new("TextLabel")
-TextS.Name = "TextS"
-TextS.TextWrapped = true
-TextS.BorderSizePixel = 0
-TextS.TextScaled = true
-TextS.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextS.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextS.TextSize = 14
-TextS.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-TextS.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextS.Text = "Snap to Grid"
-TextS.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TextS.BackgroundTransparency = 1
-TextS.Position = UDim2.new(0.02, 0.00, 0.20, 0.00)
-TextS.Parent = Snap
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = TextS
-
-local TextBoxS = Instance.new("TextBox")
-TextBoxS.Name = "TextBoxS"
-TextBoxS.TextWrapped = true
-TextBoxS.BorderSizePixel = 3
-TextBoxS.TextScaled = true
-TextBoxS.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextBoxS.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextBoxS.TextSize = 14
-TextBoxS.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-TextBoxS.TextColor3 = Color3.new(0.00, 0.00, 0.00)
-TextBoxS.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextBoxS.Text = "0.25"
-TextBoxS.Position = UDim2.new(0.68, 0.00, 0.20, 0.00)
-TextBoxS.Parent = Snap
-
-local Grid = Instance.new("Folder")
-Grid.Name = "Grid"
-Grid.Parent = Frame_1
-
-local BtnG = Instance.new("TextButton")
-BtnG.Name = "BtnG"
-BtnG.TextWrapped = true
-BtnG.BorderSizePixel = 3
-BtnG.TextScaled = true
-BtnG.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-BtnG.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-BtnG.TextSize = 14
-BtnG.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-BtnG.TextColor3 = Color3.new(0.00, 0.00, 0.00)
-BtnG.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-BtnG.Text = "Place"
-BtnG.Position = UDim2.new(0.68, 0.00, 0.29, 0.00)
-BtnG.Parent = Grid
-
-local TextG = Instance.new("TextLabel")
-TextG.Name = "TextG"
-TextG.TextWrapped = true
-TextG.BorderSizePixel = 0
-TextG.TextScaled = true
-TextG.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextG.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextG.TextSize = 14
-TextG.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-TextG.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextG.Text = "Place Grid"
-TextG.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TextG.BackgroundTransparency = 1
-TextG.Position = UDim2.new(0.02, 0.00, 0.29, 0.00)
-TextG.Parent = Grid
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = TextG
-
-local Sky = Instance.new("Folder")
-Sky.Name = "Sky"
-Sky.Parent = Frame_1
-
-local BtnSk = Instance.new("TextButton")
-BtnSk.Name = "BtnSk"
-BtnSk.TextWrapped = true
-BtnSk.BorderSizePixel = 3
-BtnSk.TextScaled = true
-BtnSk.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-BtnSk.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-BtnSk.TextSize = 14
-BtnSk.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-BtnSk.TextColor3 = Color3.new(0.00, 0.00, 0.00)
-BtnSk.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-BtnSk.Text = "Pick"
-BtnSk.Position = UDim2.new(0.68, 0.00, 0.39, 0.00)
-BtnSk.Parent = Sky
-
-local TextSk = Instance.new("TextLabel")
-TextSk.Name = "TextSk"
-TextSk.TextWrapped = true
-TextSk.BorderSizePixel = 0
-TextSk.TextScaled = true
-TextSk.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextSk.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextSk.TextSize = 14
-TextSk.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-TextSk.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextSk.Text = " Better Sky"
-TextSk.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TextSk.BackgroundTransparency = 1
-TextSk.Position = UDim2.new(0.02, 0.00, 0.39, 0.00)
-TextSk.Parent = Sky
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = TextSk
-
-local RotationSnap = Instance.new("Folder")
-RotationSnap.Name = "RotationSnap"
-RotationSnap.Parent = Frame_1
-
-local TextRs = Instance.new("TextLabel")
-TextRs.Name = "TextRs"
-TextRs.TextWrapped = true
-TextRs.BorderSizePixel = 0
-TextRs.TextScaled = true
-TextRs.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextRs.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextRs.TextSize = 14
-TextRs.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-TextRs.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextRs.Text = "Snap to Rotation"
-TextRs.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TextRs.BackgroundTransparency = 1
-TextRs.Position = UDim2.new(0.02, 0.00, 0.48, 0.00)
-TextRs.Parent = RotationSnap
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = TextRs
-
-local TextBoxRs = Instance.new("TextBox")
-TextBoxRs.Name = "TextBoxRs"
-TextBoxRs.TextWrapped = true
-TextBoxRs.BorderSizePixel = 3
-TextBoxRs.TextScaled = true
-TextBoxRs.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextBoxRs.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextBoxRs.TextSize = 14
-TextBoxRs.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-TextBoxRs.TextColor3 = Color3.new(0.00, 0.00, 0.00)
-TextBoxRs.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextBoxRs.Text = "45"
-TextBoxRs.Position = UDim2.new(0.68, 0.00, 0.48, 0.00)
-TextBoxRs.Parent = RotationSnap
-
-local ShowText = Instance.new("Folder")
-ShowText.Name = "ShowText"
-ShowText.Parent = Frame_1
-
-local BtnSt = Instance.new("TextButton")
-BtnSt.Name = "BtnSt"
-BtnSt.TextWrapped = true
-BtnSt.BorderSizePixel = 0
-BtnSt.TextScaled = true
-BtnSt.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
-BtnSt.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-BtnSt.TextSize = 14
-BtnSt.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-BtnSt.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-BtnSt.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-BtnSt.Text = "Toggle"
-BtnSt.Position = UDim2.new(0.68, 0.00, 0.57, 0.00)
-BtnSt.Parent = ShowText
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = BtnSt
-
-local TextSt = Instance.new("TextLabel")
-TextSt.Name = "TextSt"
-TextSt.TextWrapped = true
-TextSt.BorderSizePixel = 0
-TextSt.TextScaled = true
-TextSt.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextSt.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextSt.TextSize = 14
-TextSt.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-TextSt.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextSt.Text = "Show Text"
-TextSt.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TextSt.BackgroundTransparency = 1
-TextSt.Position = UDim2.new(0.02, 0.00, 0.57, 0.00)
-TextSt.Parent = ShowText
-
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Parent = TextSt
-
-local SnapRotation = Instance.new("Folder")
-SnapRotation.Name = "SnapRotation"
-SnapRotation.Parent = Frame_1
-
-local BtnSr = Instance.new("TextButton")
-BtnSr.Name = "BtnSr"
-BtnSr.TextWrapped = true
-BtnSr.BorderSizePixel = 0
-BtnSr.TextScaled = true
-BtnSr.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
-BtnSr.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-BtnSr.TextSize = 14
-BtnSr.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
-BtnSr.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-BtnSr.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-BtnSr.Text = "Toggle"
-BtnSr.Position = UDim2.new(0.68, 0.00, 0.66, 0.00)
-BtnSr.Parent = SnapRotation
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Parent = BtnSr
-
-local TextSr = Instance.new("TextLabel")
-TextSr.Name = "TextSr"
-TextSr.TextWrapped = true
-TextSr.BorderSizePixel = 0
-TextSr.TextScaled = true
-TextSr.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextSr.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TextSr.TextSize = 14
-TextSr.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
-TextSr.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextSr.Text = "Rotation Snapping"
-TextSr.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TextSr.BackgroundTransparency = 1
-TextSr.Position = UDim2.new(0.02, 0.00, 0.66, 0.00)
-TextSr.Parent = SnapRotation
-
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Parent = TextSr
-
-local SkyboxPicker = Instance.new("Frame")
-SkyboxPicker.Name = "SkyboxPicker"
-SkyboxPicker.Visible = false
-SkyboxPicker.AnchorPoint = Vector2.new(0.50, 0.50)
-SkyboxPicker.Size = UDim2.new(0.84, 0.00, 1.00, 0.00)
-SkyboxPicker.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-SkyboxPicker.Position = UDim2.new(0.58, 0.00, 0.50, 0.00)
-SkyboxPicker.BorderSizePixel = 0
-SkyboxPicker.BackgroundTransparency = 0.6000000238418579
-SkyboxPicker.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-SkyboxPicker.Parent = Frame
-
-local Title = Instance.new("TextLabel")
-Title.Name = "Title"
-Title.TextWrapped = true
-Title.BorderSizePixel = 0
-Title.TextScaled = true
-Title.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Title.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Title.TextSize = 14
-Title.Size = UDim2.new(1.00, 0.00, 0.08, 0.00)
-Title.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Title.Text = "Skybox Settings"
-Title.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-Title.BackgroundTransparency = 1
-Title.Parent = SkyboxPicker
-
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke.Thickness = 1.2000000476837158
-UIStroke.Transparency = 0.30000001192092896
-UIStroke.Parent = Title
-
-local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint.MaxTextSize = 28
-UITextSizeConstraint.Parent = Title
-
-local Basic = Instance.new("Frame")
-Basic.Name = "Basic"
-Basic.Size = UDim2.new(0.92, 0.00, 0.15, 0.00)
-Basic.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Basic.Position = UDim2.new(0.04, 0.00, 0.15, 0.00)
-Basic.BorderSizePixel = 0
-Basic.BackgroundTransparency = 1
-Basic.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Basic.Parent = SkyboxPicker
-
-local BoxHalf = Instance.new("Frame")
-BoxHalf.Name = "BoxHalf"
-BoxHalf.Size = UDim2.new(0.50, 0.00, 1.00, 0.00)
-BoxHalf.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-BoxHalf.Position = UDim2.new(0.50, 0.00, 0.00, 0.00)
-BoxHalf.BorderSizePixel = 0
-BoxHalf.BackgroundTransparency = 1
-BoxHalf.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-BoxHalf.Parent = Basic
-
-local UIListLayout = Instance.new("UIListLayout")
-UIListLayout.Padding = UDim.new(0.00, 10.00)
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Parent = BoxHalf
-
-local TimeOfDayB = Instance.new("TextBox")
-TimeOfDayB.Name = "TimeOfDayB"
-TimeOfDayB.BorderSizePixel = 0
-TimeOfDayB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-TimeOfDayB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TimeOfDayB.TextSize = 14
-TimeOfDayB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-TimeOfDayB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TimeOfDayB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TimeOfDayB.Text = ""
-TimeOfDayB.BackgroundTransparency = 0.5
-TimeOfDayB.Parent = BoxHalf
+local Open = Instance.new("TextButton")
+Open.Name = "Open"
+Open.TextWrapped = true
+Open.BorderSizePixel = 0
+Open.TextScaled = true
+Open.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Open.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Open.TextSize = 14
+Open.Size = UDim2.new(1.409, 0.00, -0.206, 0.00)
+Open.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+Open.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Open.Text = "build"
+Open.BackgroundTransparency = 1
+Open.Position = UDim2.new(0, 0.00, 0, 0.00)
+Open.TextXAlignment = Enum.TextXAlignment.Left
+Open.Parent = plr.PlayerGui.UI.HUD.Sidebar
+Open.TextTransparency = 0.37
 
 local UIStroke_1 = Instance.new("UIStroke")
 UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
 UIStroke_1.Thickness = 1.2000000476837158
 UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = TimeOfDayB
+UIStroke_1.Parent = Open
 
-local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint_1.MaxTextSize = 20
-UITextSizeConstraint_1.MinTextSize = 20
-UITextSizeConstraint_1.Parent = TimeOfDayB
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.ClipsDescendants = true
+MainFrame.Visible = false
+MainFrame.AnchorPoint = Vector2.new(0.50, 0.50)
+MainFrame.Size = UDim2.new(0.85, 0.00, 0.80, 0.00)
+MainFrame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+MainFrame.Position = UDim2.new(0.50, 0.00, 0.50, 0.00)
+MainFrame.BorderSizePixel = 0
+MainFrame.BackgroundColor3 = Color3.new(0.81, 0.81, 0.81)
+MainFrame.Parent = BuildHelper
 
-local FogEndB = Instance.new("TextBox")
-FogEndB.Name = "FogEndB"
-FogEndB.BorderSizePixel = 0
-FogEndB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-FogEndB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-FogEndB.TextSize = 14
-FogEndB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-FogEndB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-FogEndB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-FogEndB.Text = ""
-FogEndB.BackgroundTransparency = 0.5
-FogEndB.Parent = BoxHalf
+local MainCorner = Instance.new("UICorner")
+MainCorner.Name = "MainCorner"
+MainCorner.CornerRadius = UDim.new(0.05, 0.00)
+MainCorner.Parent = MainFrame
 
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke_1.Thickness = 1.2000000476837158
-UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = FogEndB
+local MainStroke = Instance.new("UIStroke")
+MainStroke.Name = "MainStroke"
+MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+MainStroke.Thickness = 3
+MainStroke.Parent = MainFrame
 
-local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint_1.MaxTextSize = 20
-UITextSizeConstraint_1.MinTextSize = 20
-UITextSizeConstraint_1.Parent = FogEndB
+local MainGradient = Instance.new("UIGradient")
+MainGradient.Name = "MainGradient"
+MainGradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.00, Color3.new(0.48, 0.50, 0.56)), ColorSequenceKeypoint.new(0.52, Color3.new(0.48, 0.50, 0.56)), ColorSequenceKeypoint.new(1.00, Color3.new(0.71, 0.73, 0.82))})
+MainGradient.Rotation = -45
+MainGradient.Parent = MainFrame
 
-local BrightnessB = Instance.new("TextBox")
-BrightnessB.Name = "BrightnessB"
-BrightnessB.BorderSizePixel = 0
-BrightnessB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-BrightnessB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-BrightnessB.TextSize = 14
-BrightnessB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-BrightnessB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-BrightnessB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-BrightnessB.Text = ""
-BrightnessB.BackgroundTransparency = 0.5
-BrightnessB.Parent = BoxHalf
+local Lines = Instance.new("ImageLabel")
+Lines.Name = "Lines"
+Lines.ZIndex = 2
+Lines.ScaleType = Enum.ScaleType.Tile
+Lines.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Lines.ImageTransparency = 0.949999988079071
+Lines.Image = "rbxassetid://17659184671"
+Lines.TileSize = UDim2.new(0.00, 200.00, 0.00, 200.00)
+Lines.Size = UDim2.new(2.00, 0.00, 2.00, 0.00)
+Lines.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Lines.ClipsDescendants = true
+Lines.BackgroundTransparency = 1
+Lines.Position = UDim2.new(-0.50, 0.00, -0.50, 0.00)
+Lines.Parent = MainFrame
 
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke_1.Thickness = 1.2000000476837158
-UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = BrightnessB
+local LinesCorner = Instance.new("UICorner")
+LinesCorner.Name = "LinesCorner"
+LinesCorner.CornerRadius = UDim.new(0.05, 0.00)
+LinesCorner.Parent = Lines
 
-local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint_1.MaxTextSize = 20
-UITextSizeConstraint_1.MinTextSize = 20
-UITextSizeConstraint_1.Parent = BrightnessB
+local Squares = Instance.new("ImageLabel")
+Squares.Name = "Squares"
+Squares.ImageColor3 = Color3.new(0.00, 0.00, 0.00)
+Squares.BorderSizePixel = 0
+Squares.ScaleType = Enum.ScaleType.Tile
+Squares.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Squares.ImageTransparency = 0.8999999761581421
+Squares.Image = "rbxassetid://10051952953"
+Squares.TileSize = UDim2.new(0.00, 50.00, 0.00, 50.00)
+Squares.Size = UDim2.new(1.00, 0.00, 1.00, 0.00)
+Squares.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Squares.BackgroundTransparency = 1
+Squares.Parent = MainFrame
 
-local FogColorB = Instance.new("TextBox")
-FogColorB.Name = "FogColorB"
-FogColorB.BorderSizePixel = 0
-FogColorB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-FogColorB.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-FogColorB.TextSize = 14
-FogColorB.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-FogColorB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-FogColorB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-FogColorB.Text = ""
-FogColorB.BackgroundTransparency = 0.5
-FogColorB.Parent = BoxHalf
+local SquareCorner = Instance.new("UICorner")
+SquareCorner.Name = "SquareCorner"
+SquareCorner.CornerRadius = UDim.new(0.05, 0.00)
+SquareCorner.Parent = Squares
 
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke.Thickness = 1.2000000476837158
-UIStroke.Transparency = 0.30000001192092896
-UIStroke.Parent = FogColorB
+local Exit = Instance.new("ImageButton")
+Exit.Name = "Exit"
+Exit.ImageColor3 = Color3.new(1.00, 0.55, 0.55)
+Exit.ZIndex = 2
+Exit.BorderSizePixel = 0
+Exit.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Exit.Image = "rbxassetid://5419926701"
+Exit.Size = UDim2.new(0.06, 0.00, 0.13, 0.00)
+Exit.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Exit.BackgroundTransparency = 1
+Exit.Position = UDim2.new(0.93, 0.00, 0.03, 0.00)
+Exit.Parent = MainFrame
 
-local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint.MaxTextSize = 20
-UITextSizeConstraint.MinTextSize = 20
-UITextSizeConstraint.Parent = FogColorB
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint.AspectRatio = 0.9999999403953552
+UIAspectRatioConstraint.Parent = Exit
 
-local TextHalf = Instance.new("Frame")
-TextHalf.Name = "TextHalf"
-TextHalf.Size = UDim2.new(0.50, 0.00, 1.00, 0.00)
-TextHalf.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TextHalf.BorderSizePixel = 0
-TextHalf.BackgroundTransparency = 1
-TextHalf.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-TextHalf.Parent = Basic
+local Shade = Instance.new("Frame")
+Shade.Name = "Shade"
+Shade.Size = UDim2.new(0.91, 0.00, 0.95, 0.00)
+Shade.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Shade.Position = UDim2.new(0.01, 0.00, 0.03, 0.00)
+Shade.BorderSizePixel = 0
+Shade.ZIndex = 2
+Shade.BackgroundTransparency = 0.75
+Shade.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+Shade.Parent = MainFrame
 
-local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.Padding = UDim.new(0.00, 10.00)
-UIListLayout_1.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_1.Parent = TextHalf
+local ShadeCorner = Instance.new("UICorner")
+ShadeCorner.Name = "ShadeCorner"
+ShadeCorner.CornerRadius = UDim.new(0.05, 0.00)
+ShadeCorner.Parent = Shade
 
-local TimeOfDay = Instance.new("TextLabel")
-TimeOfDay.Name = "TimeOfDay"
-TimeOfDay.TextWrapped = true
-TimeOfDay.BorderSizePixel = 0
-TimeOfDay.TextScaled = true
-TimeOfDay.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-TimeOfDay.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-TimeOfDay.TextSize = 14
-TimeOfDay.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-TimeOfDay.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-TimeOfDay.Text = "Time Of Day"
-TimeOfDay.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-TimeOfDay.BackgroundTransparency = 1
-TimeOfDay.Parent = TextHalf
+local ShadeStroke = Instance.new("UIStroke")
+ShadeStroke.Name = "ShadeStroke"
+ShadeStroke.Thickness = 2
+ShadeStroke.Parent = Shade
 
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke_1.Thickness = 1.2000000476837158
-UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = TimeOfDay
+local PaperFrame = Instance.new("Frame")
+PaperFrame.Name = "PaperFrame"
+PaperFrame.Size = UDim2.new(0.29, 0.00, 0.93, 0.00)
+PaperFrame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+PaperFrame.Position = UDim2.new(0.02, 0.00, 0.03, 0.00)
+PaperFrame.BorderSizePixel = 0
+PaperFrame.BackgroundTransparency = 0.800000011920929
+PaperFrame.BackgroundColor3 = Color3.new(0.26, 0.30, 0.62)
+PaperFrame.Parent = Shade
 
-local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint_1.MaxTextSize = 28
-UITextSizeConstraint_1.Parent = TimeOfDay
+local PaperTitle = Instance.new("TextLabel")
+PaperTitle.Name = "PaperTitle"
+PaperTitle.TextWrapped = true
+PaperTitle.BorderSizePixel = 0
+PaperTitle.TextScaled = true
+PaperTitle.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+PaperTitle.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+PaperTitle.TextSize = 14
+PaperTitle.Size = UDim2.new(0.89, 0.00, 0.07, 0.00)
+PaperTitle.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+PaperTitle.Text = "Paper Place"
+PaperTitle.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+PaperTitle.BackgroundTransparency = 0.800000011920929
+PaperTitle.Position = UDim2.new(0.06, 0.00, 0.01, 0.00)
+PaperTitle.Parent = PaperFrame
 
-local FogEnd = Instance.new("TextLabel")
-FogEnd.Name = "FogEnd"
-FogEnd.TextWrapped = true
-FogEnd.BorderSizePixel = 0
-FogEnd.TextScaled = true
-FogEnd.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-FogEnd.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-FogEnd.TextSize = 14
-FogEnd.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-FogEnd.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-FogEnd.Text = "Fog End"
-FogEnd.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-FogEnd.BackgroundTransparency = 1
-FogEnd.Parent = TextHalf
+local PaperTitleCorner = Instance.new("UICorner")
+PaperTitleCorner.Name = "PaperTitleCorner"
+PaperTitleCorner.CornerRadius = UDim.new(0.25, 0.00)
+PaperTitleCorner.Parent = PaperTitle
 
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke_1.Thickness = 1.2000000476837158
-UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = FogEnd
+local PaperTStroke = Instance.new("UIStroke")
+PaperTStroke.Name = "PaperTStroke"
+PaperTStroke.Thickness = 2
+PaperTStroke.Parent = PaperTitle
 
-local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint_1.MaxTextSize = 28
-UITextSizeConstraint_1.Parent = FogEnd
+local PaperCorner = Instance.new("UICorner")
+PaperCorner.Name = "PaperCorner"
+PaperCorner.CornerRadius = UDim.new(0.05, 0.00)
+PaperCorner.Parent = PaperFrame
 
-local Brightness = Instance.new("TextLabel")
-Brightness.Name = "Brightness"
-Brightness.TextWrapped = true
-Brightness.BorderSizePixel = 0
-Brightness.TextScaled = true
-Brightness.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-Brightness.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Brightness.TextSize = 14
-Brightness.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-Brightness.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Brightness.Text = "Brightness"
-Brightness.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-Brightness.BackgroundTransparency = 1
-Brightness.Parent = TextHalf
+local PaperStroke = Instance.new("UIStroke")
+PaperStroke.Name = "PaperStroke"
+PaperStroke.Color = Color3.new(0.04, 0.06, 0.34)
+PaperStroke.Thickness = 2
+PaperStroke.Parent = PaperFrame
 
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke_1.Thickness = 1.2000000476837158
-UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = Brightness
+local Box = Instance.new("TextBox")
+Box.Name = "Box"
+Box.BorderSizePixel = 0
+Box.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Box.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Box.TextSize = 14
+Box.Size = UDim2.new(0.89, 0.00, 0.78, 0.00)
+Box.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+Box.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Box.Text = ""
+Box.BackgroundTransparency = 0.5
+Box.Position = UDim2.new(0.06, 0.00, 0.11, 0.00)
+Box.Parent = PaperFrame
+Box.ClearTextOnFocus = false
+Box.TextXAlignment = Enum.TextXAlignment.Left
+Box.TextYAlignment = Enum.TextYAlignment.Top
+Box.TextScaled = true
 
-local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint_1.MaxTextSize = 28
-UITextSizeConstraint_1.Parent = Brightness
+local constraintBox = Instance.new("UITextSizeConstraint")
+constraintBox.Parent = Box
+constraintBox.MaxTextSize = 50
+constraintBox.MinTextSize = 1
 
-local FogColor = Instance.new("TextLabel")
-FogColor.Name = "FogColor"
-FogColor.TextWrapped = true
-FogColor.BorderSizePixel = 0
-FogColor.TextScaled = true
-FogColor.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-FogColor.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-FogColor.TextSize = 14
-FogColor.Size = UDim2.new(0.91, 0.00, 0.30, 0.00)
-FogColor.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-FogColor.Text = "Fog Color"
-FogColor.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-FogColor.BackgroundTransparency = 1
-FogColor.Parent = TextHalf
+local BoxCorner = Instance.new("UICorner")
+BoxCorner.Name = "BoxCorner"
+BoxCorner.CornerRadius = UDim.new(0.01, 0.00)
+BoxCorner.Parent = Box
 
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke.Thickness = 1.2000000476837158
-UIStroke.Transparency = 0.30000001192092896
-UIStroke.Parent = FogColor
+local Place = Instance.new("TextButton")
+Place.Name = "Place"
+Place.TextWrapped = true
+Place.BorderSizePixel = 0
+Place.TextScaled = true
+Place.BackgroundColor3 = Color3.new(0.52, 1.00, 0.51)
+Place.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+Place.TextSize = 14
+Place.Size = UDim2.new(0.44, 0.00, 0.07, 0.00)
+Place.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+Place.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Place.Text = "Place"
+Place.BackgroundTransparency = 0.5
+Place.Position = UDim2.new(0.28, 0.00, 0.91, 0.00)
+Place.Parent = PaperFrame
 
-local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint.MaxTextSize = 28
-UITextSizeConstraint.Parent = FogColor
+local PlaceCorner = Instance.new("UICorner")
+PlaceCorner.Name = "PlaceCorner"
+PlaceCorner.CornerRadius = UDim.new(0.25, 0.00)
+PlaceCorner.Parent = Place
 
-local ToggleSkybox = Instance.new("TextButton")
-ToggleSkybox.Name = "ToggleSkybox"
-ToggleSkybox.TextWrapped = true
-ToggleSkybox.BorderSizePixel = 0
-ToggleSkybox.TextScaled = true
-ToggleSkybox.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
-ToggleSkybox.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-ToggleSkybox.TextSize = 14
-ToggleSkybox.Size = UDim2.new(0.19, 0.00, 0.05, 0.00)
-ToggleSkybox.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-ToggleSkybox.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-ToggleSkybox.Text = "Toggle"
-ToggleSkybox.Position = UDim2.new(0.40, 0.00, 0.07, 0.00)
-ToggleSkybox.Parent = SkyboxPicker
+local Settings = Instance.new("ImageButton")
+Settings.Name = "Settings"
+Settings.ImageColor3 = Color3.new(0.71, 0.71, 0.71)
+Settings.BorderSizePixel = 0
+Settings.BackgroundColor3 = Color3.new(0.80, 0.60, 0.44)
+Settings.Image = "rbxassetid://9753762469"
+Settings.Size = UDim2.new(0.13, 0.00, 0.09, 0.00)
+Settings.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Settings.BackgroundTransparency = 1
+Settings.Position = UDim2.new(0.81, 0.00, 0.91, 0.00)
+Settings.Parent = PaperFrame
 
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Parent = ToggleSkybox
+local UIAspectRatioConstraint_1 = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint_1.Parent = Settings
 
-local ScrollingFrame = Instance.new("ScrollingFrame")
-ScrollingFrame.Active = true
-ScrollingFrame.BorderSizePixel = 0
-ScrollingFrame.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-ScrollingFrame.Size = UDim2.new(0.923, 0.00, 0.597, 0.00)
-ScrollingFrame.ScrollBarImageColor3 = Color3.new(0.00, 0.00, 0.00)
-ScrollingFrame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-ScrollingFrame.BackgroundTransparency = 0.800000011920929
-ScrollingFrame.Position = UDim2.new(0.038, 0.00, 0.373, 0.00)
-ScrollingFrame.Parent = SkyboxPicker
+local SkyboxFrame = Instance.new("Frame")
+SkyboxFrame.Name = "SkyboxFrame"
+SkyboxFrame.Size = UDim2.new(0.67, 0.00, 0.93, 0.00)
+SkyboxFrame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+SkyboxFrame.Position = UDim2.new(0.32, 0.00, 0.03, 0.00)
+SkyboxFrame.BorderSizePixel = 0
+SkyboxFrame.BackgroundTransparency = 0.800000011920929
+SkyboxFrame.BackgroundColor3 = Color3.new(0.62, 0.62, 0.30)
+SkyboxFrame.Parent = Shade
+
+local SkyboxCorner = Instance.new("UICorner")
+SkyboxCorner.Name = "SkyboxCorner"
+SkyboxCorner.CornerRadius = UDim.new(0.03, 0.00)
+SkyboxCorner.Parent = SkyboxFrame
+
+local SkyStroke = Instance.new("UIStroke")
+SkyStroke.Name = "SkyStroke"
+SkyStroke.Color = Color3.new(0.78, 0.75, 0.23)
+SkyStroke.Thickness = 2
+SkyStroke.Parent = SkyboxFrame
+
+local SkyTitle = Instance.new("TextLabel")
+SkyTitle.Name = "SkyTitle"
+SkyTitle.TextWrapped = true
+SkyTitle.BorderSizePixel = 0
+SkyTitle.TextScaled = true
+SkyTitle.BackgroundColor3 = Color3.new(1.00, 0.99, 0.70)
+SkyTitle.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+SkyTitle.AnchorPoint = Vector2.new(0.50, 0.00)
+SkyTitle.TextSize = 14
+SkyTitle.Size = UDim2.new(0.96, 0.00, 0.09, 0.00)
+SkyTitle.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+SkyTitle.Text = "Skybox Settings"
+SkyTitle.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+SkyTitle.BackgroundTransparency = 0.5
+SkyTitle.Position = UDim2.new(0.50, 0.00, 0.01, 0.00)
+SkyTitle.Parent = SkyboxFrame
+
+local SkyboxTCorner = Instance.new("UICorner")
+SkyboxTCorner.Name = "SkyboxTCorner"
+SkyboxTCorner.CornerRadius = UDim.new(0.25, 0.00)
+SkyboxTCorner.Parent = SkyTitle
+
+local SkyboxTStroke = Instance.new("UIStroke")
+SkyboxTStroke.Name = "SkyboxTStroke"
+SkyboxTStroke.Thickness = 2
+SkyboxTStroke.Parent = SkyTitle
+
+local ToggleSky = Instance.new("ImageButton")
+ToggleSky.Name = "ToggleSky"
+ToggleSky.BorderSizePixel = 0
+ToggleSky.ScaleType = Enum.ScaleType.Crop
+ToggleSky.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+ToggleSky.Image = "rbxassetid://106419283411861"
+ToggleSky.Size = UDim2.new(0.092, 0, 0.078, 0)
+ToggleSky.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ToggleSky.BackgroundTransparency = 1
+ToggleSky.Position = UDim2.new(0.88, 0.00, 0.02, 0.00)
+ToggleSky.Parent = SkyboxFrame
+
+local Skyboxes = Instance.new("ScrollingFrame")
+Skyboxes.Name = "Skyboxes"
+Skyboxes.Active = true
+Skyboxes.BorderSizePixel = 0
+Skyboxes.CanvasSize = UDim2.new(0.00, 0.00, 0.00, 0.00)
+Skyboxes.AutomaticCanvasSize = Enum.AutomaticSize.Y
+Skyboxes.BackgroundColor3 = Color3.new(1.00, 0.99, 0.70)
+Skyboxes.Size = UDim2.new(0.75, 0.00, 0.84, 0.00)
+Skyboxes.ScrollBarImageColor3 = Color3.new(0.00, 0.00, 0.00)
+Skyboxes.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Skyboxes.BackgroundTransparency = 0.30000001192092896
+Skyboxes.Position = UDim2.new(0.23, 0.00, 0.13, 0.00)
+Skyboxes.Parent = SkyboxFrame
+
+local SkyboxCorner_1 = Instance.new("UICorner")
+SkyboxCorner_1.Name = "SkyboxCorner"
+SkyboxCorner_1.CornerRadius = UDim.new(0.05, 0.00)
+SkyboxCorner_1.Parent = Skyboxes
+
+local Insides = Instance.new("Frame")
+Insides.Name = "Insides"
+Insides.Size = UDim2.new(0.95, 0.00, 0.96, 0.00)
+Insides.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Insides.Position = UDim2.new(0.01, 0.00, 0.02, 0.00)
+Insides.BorderSizePixel = 0
+Insides.BackgroundTransparency = 1
+Insides.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Insides.Parent = Skyboxes
 
 local SkyboxesFolder = Instance.new("Folder")
 SkyboxesFolder.Name = "SkyboxesFolder"
-SkyboxesFolder.Parent = ScrollingFrame
+SkyboxesFolder.Parent = Insides
 
 local Sky1 = Instance.new("ImageButton")
 Sky1.Name = "Sky1"
@@ -802,7 +498,7 @@ Sky1.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
 Sky1.Parent = SkyboxesFolder
 
 local UIGridLayout = Instance.new("UIGridLayout")
-UIGridLayout.CellPadding = UDim2.new(0.05, 0.00, 0.05, 0.00)
+UIGridLayout.CellPadding = UDim2.new(0.05, 0.00, 0.00, 25.00)
 UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIGridLayout.CellSize = UDim2.new(0.20, 0.00, 0.00, 100.00)
 UIGridLayout.Parent = SkyboxesFolder
@@ -906,157 +602,563 @@ Sky12.Size = UDim2.new(0.20, 0.00, 0.23, 0.00)
 Sky12.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
 Sky12.Parent = SkyboxesFolder
 
-local ExitSky = Instance.new("TextButton")
-ExitSky.Name = "ExitSky"
-ExitSky.TextWrapped = true
-ExitSky.BorderSizePixel = 0
-ExitSky.TextScaled = true
-ExitSky.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-ExitSky.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-ExitSky.TextSize = 14
-ExitSky.Size = UDim2.new(0.10, 0.00, 0.07, 0.00)
-ExitSky.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-ExitSky.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-ExitSky.Text = "X"
-ExitSky.BackgroundTransparency = 1
-ExitSky.Position = UDim2.new(0.90, 0.00, 0.00, 0.00)
-ExitSky.Parent = SkyboxPicker
+local SkySetting = Instance.new("Frame")
+SkySetting.Name = "SkySetting"
+SkySetting.Size = UDim2.new(0.19, 0.00, 0.84, 0.00)
+SkySetting.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+SkySetting.Position = UDim2.new(0.02, 0.00, 0.13, 0.00)
+SkySetting.BorderSizePixel = 0
+SkySetting.BackgroundTransparency = 0.800000011920929
+SkySetting.BackgroundColor3 = Color3.new(1.00, 0.99, 0.70)
+SkySetting.Parent = SkyboxFrame
+
+local SkySetCorner = Instance.new("UICorner")
+SkySetCorner.Name = "SkySetCorner"
+SkySetCorner.CornerRadius = UDim.new(0.05, 0.00)
+SkySetCorner.Parent = SkySetting
+
+local ToD = Instance.new("TextLabel")
+ToD.Name = "ToD"
+ToD.TextWrapped = true
+ToD.BorderSizePixel = 0
+ToD.TextScaled = true
+ToD.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+ToD.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ToD.TextSize = 14
+ToD.Size = UDim2.new(1.00, 0.00, 0.06, 0.00)
+ToD.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ToD.Text = "Time of Day"
+ToD.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+ToD.BackgroundTransparency = 1
+ToD.Parent = SkySetting
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Color = Color3.new(0.83, 0.82, 0.61)
+UIStroke.Parent = ToD
+
+local ToDB = Instance.new("TextBox")
+ToDB.Name = "ToDB"
+ToDB.TextWrapped = true
+ToDB.BorderSizePixel = 0
+ToDB.TextScaled = true
+ToDB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+ToDB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ToDB.TextSize = 14
+ToDB.Size = UDim2.new(0.88, 0.00, 0.09, 0.00)
+ToDB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+ToDB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ToDB.Text = "12"
+ToDB.BackgroundTransparency = 0.5
+ToDB.Position = UDim2.new(0.06, 0.00, 0.06, 0.00)
+ToDB.Parent = SkySetting
+
+local FEB = Instance.new("TextBox")
+FEB.Name = "FEB"
+FEB.TextWrapped = true
+FEB.BorderSizePixel = 0
+FEB.TextScaled = true
+FEB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+FEB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FEB.TextSize = 14
+FEB.Size = UDim2.new(0.88, 0.00, 0.09, 0.00)
+FEB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+FEB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FEB.Text = "100000"
+FEB.BackgroundTransparency = 0.5
+FEB.Position = UDim2.new(0.05, 0.00, 0.21, 0.00)
+FEB.Parent = SkySetting
+
+local FE = Instance.new("TextLabel")
+FE.Name = "FE"
+FE.TextWrapped = true
+FE.BorderSizePixel = 0
+FE.TextScaled = true
+FE.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+FE.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FE.TextSize = 14
+FE.Size = UDim2.new(1.00, 0.00, 0.06, 0.00)
+FE.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FE.Text = "Fog End"
+FE.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+FE.BackgroundTransparency = 1
+FE.Position = UDim2.new(-0.00, 0.00, 0.15, 0.00)
+FE.Parent = SkySetting
 
 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Parent = ExitSky
+UIStroke_1.Color = Color3.new(0.83, 0.82, 0.61)
+UIStroke_1.Parent = FE
 
-local Writing = Instance.new("Frame")
-Writing.Name = "Writing"
-Writing.AnchorPoint = Vector2.new(0.50, 0.50)
-Writing.Size = UDim2.new(0.84, 0.00, 1.00, 0.00)
-Writing.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Writing.Position = UDim2.new(0.58, 0.00, 0.50, 0.00)
-Writing.BorderSizePixel = 0
-Writing.BackgroundTransparency = 0.6000000238418579
-Writing.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
-Writing.Parent = Frame
-Writing.Visible = true
+local BRB = Instance.new("TextBox")
+BRB.Name = "BRB"
+BRB.TextWrapped = true
+BRB.BorderSizePixel = 0
+BRB.TextScaled = true
+BRB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+BRB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BRB.TextSize = 14
+BRB.Size = UDim2.new(0.88, 0.00, 0.09, 0.00)
+BRB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+BRB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BRB.Text = "2"
+BRB.BackgroundTransparency = 0.5
+BRB.Position = UDim2.new(0.05, 0.00, 0.36, 0.00)
+BRB.Parent = SkySetting
 
-local Contents = Instance.new("TextBox")
-Contents.Name = "Contents"
-Contents.TextWrapped = true
-Contents.BorderSizePixel = 0
-Contents.TextYAlignment = Enum.TextYAlignment.Top
-Contents.TextScaled = true
-Contents.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Contents.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Contents.AnchorPoint = Vector2.new(0.50, 0.50)
-Contents.TextSize = 25
-Contents.Size = UDim2.new(0.92, 0.00, 0.88, 0.00)
-Contents.TextColor3 = Color3.new(0.00, 0.00, 0.00)
-Contents.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Contents.Text = ""
-Contents.TextXAlignment = Enum.TextXAlignment.Left
-Contents.Position = UDim2.new(0.50, 0.00, 0.51, 0.00)
-Contents.Parent = Writing
+local BR = Instance.new("TextLabel")
+BR.Name = "BR"
+BR.TextWrapped = true
+BR.BorderSizePixel = 0
+BR.TextScaled = true
+BR.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+BR.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BR.TextSize = 14
+BR.Size = UDim2.new(1.00, 0.00, 0.06, 0.00)
+BR.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BR.Text = "Brightness"
+BR.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+BR.BackgroundTransparency = 1
+BR.Position = UDim2.new(-0.01, 0.00, 0.30, 0.00)
+BR.Parent = SkySetting
 
-local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint.MaxTextSize = 50
-UITextSizeConstraint.Parent = Contents
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.83, 0.82, 0.61)
+UIStroke_1.Parent = BR
+
+local FCB = Instance.new("TextBox")
+FCB.Name = "FCB"
+FCB.TextWrapped = true
+FCB.BorderSizePixel = 0
+FCB.TextScaled = true
+FCB.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+FCB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FCB.TextSize = 14
+FCB.Size = UDim2.new(0.88, 0.00, 0.09, 0.00)
+FCB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+FCB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FCB.Text = "255,255,255"
+FCB.BackgroundTransparency = 0.5
+FCB.Position = UDim2.new(0.05, 0.00, 0.50, 0.00)
+FCB.Parent = SkySetting
+
+local FC = Instance.new("TextLabel")
+FC.Name = "FC"
+FC.TextWrapped = true
+FC.BorderSizePixel = 0
+FC.TextScaled = true
+FC.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+FC.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FC.TextSize = 14
+FC.Size = UDim2.new(1.00, 0.00, 0.06, 0.00)
+FC.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FC.Text = "Fog Color"
+FC.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+FC.BackgroundTransparency = 1
+FC.Position = UDim2.new(-0.01, 0.00, 0.44, 0.00)
+FC.Parent = SkySetting
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Color = Color3.new(0.83, 0.82, 0.61)
+UIStroke_1.Parent = FC
+
+local SettingsUI = Instance.new("ScreenGui")
+SettingsUI.Parent = plr.PlayerGui
+SettingsUI.Enabled = false
+
+local Settings_1 = Instance.new("Frame")
+Settings_1.Name = "Settings"
+Settings_1.ClipsDescendants = true
+Settings_1.Visible = true
+Settings_1.Size = UDim2.new(0.17, 0.00, 0.53, 0.00)
+Settings_1.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Settings_1.Position = UDim2.new(0.34, 0.00, 0.23, 0.00)
+Settings_1.BorderSizePixel = 0
+Settings_1.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Settings_1.Parent = SettingsUI
+Settings_1.ZIndex = -2
+Settings_1.Active = true
+
+local SettingsCorner = Instance.new("UICorner")
+SettingsCorner.Name = "SettingsCorner"
+SettingsCorner.CornerRadius = UDim.new(0.05, 0.00)
+SettingsCorner.Parent = Settings_1
+
+local SettingsGradient = Instance.new("UIGradient")
+SettingsGradient.Name = "SettingsGradient"
+SettingsGradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.00, Color3.new(1.00, 0.78, 0.78)), ColorSequenceKeypoint.new(1.00, Color3.new(1.00, 0.92, 0.79))})
+SettingsGradient.Parent = Settings_1
+
+local SettingsTitle = Instance.new("TextLabel")
+SettingsTitle.Name = "SettingsTitle"
+SettingsTitle.TextWrapped = true
+SettingsTitle.BorderSizePixel = 0
+SettingsTitle.TextScaled = true
+SettingsTitle.BackgroundColor3 = Color3.new(0.87, 0.69, 0.68)
+SettingsTitle.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+SettingsTitle.TextSize = 14
+SettingsTitle.Size = UDim2.new(1.00, 0.00, 0.08, 0.00)
+SettingsTitle.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+SettingsTitle.Text = "Settings"
+SettingsTitle.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+SettingsTitle.Parent = Settings_1
+SettingsTitle.Active = true
+
+local SetTitleCorner = Instance.new("UICorner")
+SetTitleCorner.Name = "SetTitleCorner"
+SetTitleCorner.CornerRadius = UDim.new(0.40, 0.00)
+SetTitleCorner.Parent = SettingsTitle
+
+local FillBottom = Instance.new("Frame")
+FillBottom.Name = "FillBottom"
+FillBottom.ClipsDescendants = true
+FillBottom.Size = UDim2.new(1.00, 0.00, 0.02, 0.00)
+FillBottom.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FillBottom.Position = UDim2.new(-0.00, 0.00, 0.06, 0.00)
+FillBottom.BorderSizePixel = 0
+FillBottom.ZIndex = -1
+FillBottom.BackgroundColor3 = Color3.new(0.87, 0.69, 0.68)
+FillBottom.Parent = Settings_1
+FillBottom.Active = true
 
 local UIStroke_1 = Instance.new("UIStroke")
 UIStroke_1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-UIStroke_1.Color = Color3.new(0.67, 0.67, 0.67)
-UIStroke_1.Thickness = 2.4000000953674316
-UIStroke_1.Parent = Contents
+UIStroke_1.Thickness = 3
+UIStroke_1.Parent = Settings_1
 
-local UIPadding = Instance.new("UIPadding")
-UIPadding.PaddingBottom = UDim.new(0.00, 5.00)
-UIPadding.PaddingTop = UDim.new(0.00, 5.00)
-UIPadding.PaddingLeft = UDim.new(0.00, 5.00)
-UIPadding.PaddingRight = UDim.new(0.00, 5.00)
-UIPadding.Parent = Contents
+local ScrollSettings = Instance.new("ScrollingFrame")
+ScrollSettings.Name = "ScrollSettings"
+ScrollSettings.Active = true
+ScrollSettings.BorderSizePixel = 0
+ScrollSettings.CanvasSize = UDim2.new(0.00, 0.00, 0.00, 0.00)
+ScrollSettings.AutomaticCanvasSize = Enum.AutomaticSize.Y
+ScrollSettings.AnchorPoint = Vector2.new(0.50, 0.00)
+ScrollSettings.BackgroundColor3 = Color3.new(0.00, 0.00, 0.00)
+ScrollSettings.Size = UDim2.new(0.96, 0.00, 0.89, 0.00)
+ScrollSettings.ScrollBarImageColor3 = Color3.new(0.00, 0.00, 0.00)
+ScrollSettings.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ScrollSettings.BackgroundTransparency = 0.5
+ScrollSettings.Position = UDim2.new(0.50, 0.00, 0.10, 0.00)
+ScrollSettings.Parent = Settings_1
+ScrollSettings.Active = true
 
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0.00, 4.00)
-UICorner.Parent = Contents
+local SettingsCorner_1 = Instance.new("UICorner")
+SettingsCorner_1.Name = "SettingsCorner"
+SettingsCorner_1.CornerRadius = UDim.new(0.02, 0.00)
+SettingsCorner_1.Parent = ScrollSettings
 
-local Submit = Instance.new("TextButton")
-Submit.Name = "Submit"
-Submit.TextWrapped = true
-Submit.BorderSizePixel = 0
-Submit.TextScaled = true
-Submit.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Submit.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Submit.AnchorPoint = Vector2.new(0.50, 0.00)
-Submit.TextSize = 14
-Submit.Size = UDim2.new(0.7, 0.00, 0.05, 0.00)
-Submit.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-Submit.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Submit.Text = "place"
-Submit.BackgroundTransparency = 1
-Submit.Position = UDim2.new(0.50, 0.00, 0.96, 0.00)
-Submit.Parent = Writing
-
-local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke_1.Thickness = 1.2000000476837158
-UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = Submit
-
-local UITextSizeConstraint_1 = Instance.new("UITextSizeConstraint")
-UITextSizeConstraint_1.MaxTextSize = 28
-UITextSizeConstraint_1.Parent = Submit
-
-local PaperCount = Instance.new("TextLabel")
-PaperCount.Name = "PaperCount"
-PaperCount.TextWrapped = true
-PaperCount.BorderSizePixel = 0
-PaperCount.TextScaled = true
-PaperCount.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-PaperCount.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-PaperCount.TextXAlignment = Enum.TextXAlignment.Left
-PaperCount.TextSize = 30
-PaperCount.Size = UDim2.new(0.67, 0.00, 0.07, 0.00)
-PaperCount.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-PaperCount.Text = "you have 10 papers available."
-PaperCount.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-PaperCount.BackgroundTransparency = 1
-PaperCount.Position = UDim2.new(0.00, 0.00, -0.00, 0.00)
-PaperCount.Parent = Writing
+local BB = Instance.new("TextButton")
+BB.Name = "BB"
+BB.TextWrapped = true
+BB.BorderSizePixel = 0
+BB.TextScaled = true
+BB.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
+BB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+BB.TextSize = 14
+BB.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+BB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+BB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+BB.Text = "Toggle"
+BB.Parent = ScrollSettings
 
 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.LineJoinMode = Enum.LineJoinMode.Miter
-UIStroke_1.Color = Color3.new(0.16, 0.16, 0.16)
-UIStroke_1.Thickness = 0.800000011920929
-UIStroke_1.Transparency = 0.2800000011920929
-UIStroke_1.Parent = PaperCount
+UIStroke_1.Parent = BB
 
-local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.PaddingBottom = UDim.new(0.00, 5.00)
-UIPadding_1.PaddingTop = UDim.new(0.00, 5.00)
-UIPadding_1.PaddingLeft = UDim.new(0.00, 5.00)
-UIPadding_1.PaddingRight = UDim.new(0.00, 5.00)
-UIPadding_1.Parent = Writing
+local APCorner = Instance.new("UICorner")
+APCorner.Name = "APCorner"
+APCorner.CornerRadius = UDim.new(0.25, 0.00)
+APCorner.Parent = BB
 
-local Open = Instance.new("TextButton")
-Open.Name = "Open"
-Open.TextWrapped = true
-Open.BorderSizePixel = 0
-Open.TextScaled = true
-Open.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
-Open.FontFace = Font.new("rbxasset://fonts/families/Arimo.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Open.TextSize = 14
-Open.Size = UDim2.new(1.409, 0.00, -0.206, 0.00)
-Open.TextColor3 = Color3.new(1.00, 1.00, 1.00)
-Open.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
-Open.Text = "build"
-Open.BackgroundTransparency = 1
-Open.Position = UDim2.new(0, 0.00, 0, 0.00)
-Open.TextXAlignment = Enum.TextXAlignment.Left
-Open.Parent = plr.PlayerGui.UI.HUD.Sidebar
-Open.TextTransparency = 0.37
+local AB = Instance.new("TextButton")
+AB.Name = "AB"
+AB.TextWrapped = true
+AB.BorderSizePixel = 0
+AB.TextScaled = true
+AB.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
+AB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+AB.TextSize = 14
+AB.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+AB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+AB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+AB.Text = "Toggle"
+AB.Parent = ScrollSettings
 
 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.Color = Color3.new(0.29, 0.29, 0.29)
-UIStroke_1.Thickness = 1.2000000476837158
-UIStroke_1.Transparency = 0.30000001192092896
-UIStroke_1.Parent = Open
+UIStroke_1.Parent = AB
+
+local BaFCorner = Instance.new("UICorner")
+BaFCorner.Name = "BaFCorner"
+BaFCorner.CornerRadius = UDim.new(0.25, 0.00)
+BaFCorner.Parent = AB
+
+local EB = Instance.new("TextButton")
+EB.Name = "EB"
+EB.TextWrapped = true
+EB.BorderSizePixel = 0
+EB.TextScaled = true
+EB.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+EB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+EB.TextSize = 14
+EB.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+EB.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+EB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+EB.Text = "Place"
+EB.Parent = ScrollSettings
+
+local PGCorner = Instance.new("UICorner")
+PGCorner.Name = "PGCorner"
+PGCorner.CornerRadius = UDim.new(0.25, 0.00)
+PGCorner.Parent = EB
+
+local UIGridLayout_1 = Instance.new("UIGridLayout")
+UIGridLayout_1.CellPadding = UDim2.new(0.10, 0.00, 0.00, 5.00)
+UIGridLayout_1.CellSize = UDim2.new(0.43, 0.00, 0.10, 0.00)
+UIGridLayout_1.Parent = ScrollSettings
+
+local A = Instance.new("TextLabel")
+A.Name = "A"
+A.TextWrapped = true
+A.BorderSizePixel = 0
+A.TextScaled = true
+A.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+A.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+A.TextSize = 14
+A.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+A.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+A.Text = "Build at Feet"
+A.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+A.BackgroundTransparency = 1
+A.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = A
+
+local E = Instance.new("TextLabel")
+E.Name = "E"
+E.TextWrapped = true
+E.BorderSizePixel = 0
+E.TextScaled = true
+E.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+E.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+E.TextSize = 14
+E.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+E.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+E.Text = "Place Grid"
+E.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+E.BackgroundTransparency = 1
+E.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = E
+
+local B = Instance.new("TextLabel")
+B.Name = "B"
+B.TextWrapped = true
+B.BorderSizePixel = 0
+B.TextScaled = true
+B.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+B.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+B.TextSize = 14
+B.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+B.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+B.Text = "Adjacent"
+B.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+B.BackgroundTransparency = 1
+B.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = B
+
+local CB = Instance.new("TextBox")
+CB.Name = "CB"
+CB.TextWrapped = true
+CB.BorderSizePixel = 0
+CB.TextScaled = true
+CB.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+CB.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+CB.TextSize = 14
+CB.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+CB.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+CB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+CB.Text = "0.25"
+CB.Position = UDim2.new(0.68, 0.00, 0.20, 0.00)
+CB.Parent = ScrollSettings
+
+local StGCorner = Instance.new("UICorner")
+StGCorner.Name = "StGCorner"
+StGCorner.CornerRadius = UDim.new(0.25, 0.00)
+StGCorner.Parent = CB
+
+local C = Instance.new("TextLabel")
+C.Name = "C"
+C.TextWrapped = true
+C.BorderSizePixel = 0
+C.TextScaled = true
+C.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+C.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+C.TextSize = 14
+C.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+C.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+C.Text = "Snap to Grid"
+C.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+C.BackgroundTransparency = 1
+C.Position = UDim2.new(0.02, 0.00, 0.20, 0.00)
+C.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = C
+
+local FB = Instance.new("TextButton")
+FB.Name = "FB"
+FB.TextWrapped = true
+FB.BorderSizePixel = 0
+FB.TextScaled = true
+FB.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+FB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+FB.TextSize = 14
+FB.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+FB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+FB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+FB.Text = "Toggle"
+FB.Position = UDim2.new(0.68, 0.00, 0.57, 0.00)
+FB.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = FB
+
+local APCorner_1 = Instance.new("UICorner")
+APCorner_1.Name = "APCorner"
+APCorner_1.CornerRadius = UDim.new(0.25, 0.00)
+APCorner_1.Parent = FB
+
+local GB = Instance.new("TextButton")
+GB.Name = "GB"
+GB.TextWrapped = true
+GB.BorderSizePixel = 0
+GB.TextScaled = true
+GB.BackgroundColor3 = Color3.new(1.00, 0.00, 0.02)
+GB.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+GB.TextSize = 14
+GB.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+GB.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+GB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+GB.Text = "Toggle"
+GB.Parent = ScrollSettings
+
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = GB
+
+local BaFCorner = Instance.new("UICorner")
+BaFCorner.Name = "BaFCorner"
+BaFCorner.CornerRadius = UDim.new(0.25, 0.00)
+BaFCorner.Parent = GB
+
+local G = Instance.new("TextLabel")
+G.Name = "G"
+G.TextWrapped = true
+G.BorderSizePixel = 0
+G.TextScaled = true
+G.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+G.FontFace = Font.new("rbxasset://fonts/families/Sarpanch.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+G.TextSize = 14
+G.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+G.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+G.Text = "Rotation Snap"
+G.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+G.BackgroundTransparency = 1
+G.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = G
+
+local F = Instance.new("TextLabel")
+F.Name = "F"
+F.TextWrapped = true
+F.BorderSizePixel = 0
+F.TextScaled = true
+F.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+F.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+F.TextSize = 14
+F.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+F.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+F.Text = "Show Text"
+F.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+F.BackgroundTransparency = 1
+F.Position = UDim2.new(0.02, 0.00, 0.57, 0.00)
+F.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = F
+
+local DB = Instance.new("TextBox")
+DB.Name = "DB"
+DB.TextWrapped = true
+DB.BorderSizePixel = 0
+DB.TextScaled = true
+DB.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+DB.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+DB.TextSize = 14
+DB.Size = UDim2.new(0.19, 0.00, 0.07, 0.00)
+DB.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+DB.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+DB.Text = "45"
+DB.Position = UDim2.new(0.68, 0.00, 0.48, 0.00)
+DB.Parent = ScrollSettings
+
+local RSCorner = Instance.new("UICorner")
+RSCorner.Name = "RSCorner"
+RSCorner.CornerRadius = UDim.new(0.25, 0.00)
+RSCorner.Parent = DB
+
+local D = Instance.new("TextLabel")
+D.Name = "D"
+D.TextWrapped = true
+D.BorderSizePixel = 0
+D.TextScaled = true
+D.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+D.FontFace = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+D.TextSize = 14
+D.Size = UDim2.new(0.61, 0.00, 0.07, 0.00)
+D.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+D.Text = "Rotation Snap"
+D.TextColor3 = Color3.new(1.00, 1.00, 1.00)
+D.BackgroundTransparency = 1
+D.Position = UDim2.new(0.02, 0.00, 0.48, 0.00)
+D.Parent = ScrollSettings
+
+local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.Parent = D
+
+local SquaresSetting = Instance.new("ImageLabel")
+SquaresSetting.Name = "SquaresSetting"
+SquaresSetting.ImageColor3 = Color3.new(0.00, 0.00, 0.00)
+SquaresSetting.ZIndex = -1
+SquaresSetting.BorderSizePixel = 0
+SquaresSetting.ScaleType = Enum.ScaleType.Tile
+SquaresSetting.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+SquaresSetting.ImageTransparency = 0.8999999761581421
+SquaresSetting.Image = "rbxassetid://10051952953"
+SquaresSetting.TileSize = UDim2.new(0.00, 50.00, 0.00, 50.00)
+SquaresSetting.Size = UDim2.new(1.00, 0.00, 0.92, 0.00)
+SquaresSetting.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+SquaresSetting.BackgroundTransparency = 1
+SquaresSetting.Position = UDim2.new(0.00, 0.00, 0.08, 0.00)
+SquaresSetting.Parent = Settings_1
+SquaresSetting.Active = true
+
+local ExitSettings = Instance.new("ImageButton")
+ExitSettings.Name = "ExitSettings"
+ExitSettings.ImageColor3 = Color3.new(1.00, 0.30, 0.30)
+ExitSettings.ZIndex = 2
+ExitSettings.BorderSizePixel = 0
+ExitSettings.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+ExitSettings.Image = "rbxassetid://5419926701"
+ExitSettings.Size = UDim2.new(0.12, 0.00, 0.08, 0.00)
+ExitSettings.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+ExitSettings.BackgroundTransparency = 1
+ExitSettings.Position = UDim2.new(0.86, 0.00, 0.01, 0.00)
+ExitSettings.Parent = Settings_1
+
+local UIAspectRatioConstraint_1 = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint_1.Parent = ExitSettings
 
 function sendbackadj()
     local down = CFrame.new(-100000,-100000,-100000)
@@ -1065,6 +1167,44 @@ function sendbackadj()
     addown.CFrame = down
     adright.CFrame = down
 end
+
+local gui = SettingsUI.Settings
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+    local function update(input)
+    	local delta = input.Position - dragStart
+    	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+
+    gui.InputBegan:Connect(function(input)
+    	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+    		dragging = true
+    		dragStart = input.Position
+    		startPos = gui.Position
+    		
+    		input.Changed:Connect(function()
+    			if input.UserInputState == Enum.UserInputState.End then
+    				dragging = false
+    			end
+    		end)
+    	end
+    end)
+
+    gui.InputChanged:Connect(function(input)
+    	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+    		dragInput = input
+    	end
+    end)
+
+    uis.InputChanged:Connect(function(input)
+    	if input == dragInput and dragging then
+    		update(input)
+    	end
+    end)
 
 Open.MouseEnter:Connect(function()
     Open.Font = Enum.Font.ArimoBold
@@ -1075,68 +1215,74 @@ Open.MouseLeave:Connect(function()
 end)
 
 Open.MouseButton1Click:Connect(function()
-    toggle = not toggle
-    Frame.Visible = toggle
+    MainFrame.Visible = true
     sendbackadj()
 end)
 
-Btn.MouseButton1Click:Connect(function()
+PaperFrame.Settings.MouseButton1Click:Connect(function()
+    SettingsUI.Enabled = true
+end)
+
+ExitSettings.MouseButton1Click:Connect(function()
+    SettingsUI.Enabled = false
+end)
+
+Exit.MouseButton1Click:Connect(function()
+    MainFrame.Visible = false
+end)
+
+ToggleSky.MouseButton1Click:Connect(function()
+    skyboxtog = not skyboxtog
+    if skyboxtog == true then
+        ToggleSky.Image = "rbxassetid://104398070489150"
+    else
+        ToggleSky.Image = "rbxassetid://106419283411861"
+    end
+end)
+
+-- JUWINUJIWMDFQKJBWDNGBNUIXEDWUHYINQWDXHOUIMWIHUMODJDWHIMOUX
+
+AB.MouseButton1Click:Connect(function()
     baftoggle = not baftoggle
     if baftoggle == true then
-        Btn.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+        AB.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
         buildatfeetpart.CanQuery = true
         buildatfeetpart.CanTouch = true
     else
-        Btn.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+        AB.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
         buildatfeetpart.CanQuery = false
         buildatfeetpart.CanTouch = false
     end
 end)
 
-BtnR.MouseButton1Click:Connect(function()
+BB.MouseButton1Click:Connect(function()
     adjtoggle = not adjtoggle
     if adjtoggle == true then
-        BtnR.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+        BB.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
     else
-        BtnR.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+        BB.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
         sendbackadj()
     end
 end)
 
-BtnG.MouseButton1Click:Connect(function()
+EB.MouseButton1Click:Connect(function()
     gridtoggle = true
     Writing.Visible = false
     sendbackadj()
     placing = false
 end)
 
-BtnSk.MouseButton1Click:Connect(function()
-    SkyboxPicker.Visible = true
-    sendbackadj()
-    placing = false
-    Writing.Visible = false
-    gridtoggle = false
-end)
-
-ExitSky.MouseButton1Click:Connect(function()
-    SkyboxPicker.Visible = false
-    sendbackadj()
-    placing = false
-    Writing.Visible = true
-    gridtoggle = false
-end)
-
-BtnSt.MouseButton1Click:Connect(function()
+FB.MouseButton1Click:Connect(function()
     showtext = not showtext
     if showtext == true then
-        BtnSt.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+        FB.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
         for i,v in pairs(workspace.Papers:GetChildren()) do
             if v:FindFirstChild("SurfaceGui") then
                 v:FindFirstChild("SurfaceGui").TextLabel.Visible = true
             end
         end
     else
-        BtnSt.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+        FB.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
         for i,v in pairs(workspace.Papers:GetChildren()) do
             if v:FindFirstChild("SurfaceGui") then
                 v:FindFirstChild("SurfaceGui").TextLabel.Visible = false
@@ -1145,25 +1291,16 @@ BtnSt.MouseButton1Click:Connect(function()
     end
 end)
 
-BtnSr.MouseButton1Click:Connect(function()
+GB.MouseButton1Click:Connect(function()
     rotationsnapping = not rotationsnapping
     if rotationsnapping == true then
-        BtnSr.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
+        GB.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
     else
-        BtnSr.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+        GB.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
     end
 end)
 
-ToggleSkybox.MouseButton1Click:Connect(function()
-    skyboxtog = not skyboxtog
-    if skyboxtog == true then
-        ToggleSkybox.BackgroundColor3 = Color3.new(0.00, 1.00, 0.00)
-    else
-        ToggleSkybox.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
-    end
-end)
-
-for i,v in pairs(ScrollingFrame.SkyboxesFolder:GetChildren()) do
+for i,v in pairs(SkyboxesFolder:GetChildren()) do
     if v:IsA("ImageButton") then
         v.MouseButton1Click:Connect(function()
             local skyparam = skyboxes[v.Name]
@@ -1177,13 +1314,13 @@ for i,v in pairs(ScrollingFrame.SkyboxesFolder:GetChildren()) do
     end
 end
 
-Submit.MouseButton1Click:Connect(function()
-    if Contents.Text:match("^%s*$") then
-        Submit.Text = "Cannot submit empty text!"
+Place.MouseButton1Click:Connect(function()
+    if Box.Text:match("^%s*$") then
+        Place.Text = "Cannot submit empty text!"
         task.wait(1)
-        Submit.Text = "place"
+        Place.Text = "Place"
     else
-        Writing.Visible = false
+        MainFrame.Visible = false
         placing = true
     end
 end)
@@ -1192,6 +1329,8 @@ function createPaper(temptxt,tempcf)
     soundconfirm:Play()
     Remotes.CreatePaper:InvokeServer(temptxt, tempcf)
 end
+
+
 
 uis.InputBegan:Connect(function(inp,gpe)
     if inp.KeyCode == Enum.KeyCode.R and gpe == false and placing == true then
@@ -1202,22 +1341,21 @@ uis.InputBegan:Connect(function(inp,gpe)
         thingcf *= CFrame.Angles(0,0,math.rad(rotatesnap))
     elseif inp.KeyCode == Enum.KeyCode.U and gpe == false and placing == true then
         soundrotate:Play()
-        rotationx = 0
-        rotationy = 0
-        rotationz = 0
+        thingcf = CFrame.new(thingcf.Positon)
+        rayend.CFrame = CFrame.new(rayend.CFrame.Position)
     elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and placing == true then
         placing = false
         sendbackadj()
-        Writing.Visible = true
+        MainFrame.Visible = true
     elseif inp.KeyCode == Enum.KeyCode.X and gpe == false and gridtoggle == true then
         gridtoggle = false
-        Writing.Visible = true
+        MainFrame.Visible = true
         gridpart.CanQuery = false
         gridpart.CanTouch = false
         gridpart.Position = Vector3.new(-1000,-100000,-1000)
     end
     if inp.UserInputType == Enum.UserInputType.MouseButton1 and gpe == false and placing == true and adjtoggle == false then
-        local temptxt = Contents.Text
+        local temptxt = Box.Text
         local tempcf = rayend.CFrame
         createPaper(temptxt,tempcf)
         placing = false
@@ -1244,28 +1382,28 @@ uis.InputBegan:Connect(function(inp,gpe)
             adright.CFrame *= CFrame.new(0,0,-1.5)
         elseif inst.Name == "AdjU" then
             local tempcf = inst.CFrame * CFrame.new(-2,0,0)
-            local temptxt = Contents.Text
+            local temptxt = Box.Text
             createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
             Writing.Visible = true
         elseif inst.Name == "AdjL" then
             local tempcf = inst.CFrame * CFrame.new(0,0,1.5)
-            local temptxt = Contents.Text
+            local temptxt = Box.Text
             createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
             Writing.Visible = true
         elseif inst.Name == "AdjD" then
             local tempcf = inst.CFrame * CFrame.new(2,0,0)
-            local temptxt = Contents.Text
+            local temptxt = Box.Text
             createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
             Writing.Visible = true
         elseif inst.Name == "AdjR" then
             local tempcf = inst.CFrame * CFrame.new(0,0,-1.5)
-            local temptxt = Contents.Text
+            local temptxt = Box.Text
             createPaper(temptxt,tempcf)
             sendbackadj()
             placing = false
@@ -1290,38 +1428,41 @@ uis.InputBegan:Connect(function(inp,gpe)
     end
 end)
 
+
+
+
 rs.Heartbeat:Connect(function()
     buildatfeetpart.Position = char.HumanoidRootPart.Position + Vector3.new(0,-3.02,0)
-    if TimeOfDayB.Text == "" then
+    if ToDB.Text == "" then
         clocktim = 12
     else
-        clocktim = tonumber(TimeOfDayB.Text)
+        clocktim = tonumber(ToDB.Text)
     end
-    if FogEndB.Text == "" then
+    if FEB.Text == "" then
         fogend = 10000
     else
-        fogend = tonumber(FogEndB.Text)
+        fogend = tonumber(FEB.Text)
     end
-    if BrightnessB.Text == "" then
+    if BRB.Text == "" then
         brightnes = 2
     else
-        brightnes = tonumber(BrightnessB.Text)
+        brightnes = tonumber(BRB.Text)
     end
-    if string.find(FogColorB.Text,",") then
-        if #(string.split(FogColorB.Text,",")) ~= 3 then
+    if string.find(FCB.Text,",") then
+        if #(string.split(FCB.Text,",")) ~= 3 then
             fogcolor = Color3.new(0,0,0)
         else
-            fogcolor = Color3.fromRGB((string.split(FogColorB.Text,","))[1],(string.split(FogColorB.Text,","))[2],(string.split(FogColorB.Text,","))[3])
+            fogcolor = Color3.fromRGB((string.split(FCB.Text,","))[1],(string.split(FCB.Text,","))[2],(string.split(FCB.Text,","))[3])
         end
     else
-        if #(string.split(FogColorB.Text," ")) ~= 3 then
+        if #(string.split(FCB.Text," ")) ~= 3 then
             fogcolor = Color3.new(0,0,0)
         else
-            fogcolor = Color3.fromRGB((string.split(FogColorB.Text," "))[1],(string.split(FogColorB.Text," "))[2],(string.split(FogColorB.Text," "))[3])
+            fogcolor = Color3.fromRGB((string.split(FCB.Text," "))[1],(string.split(FCB.Text," "))[2],(string.split(FCB.Text," "))[3])
         end
     end
-    if tonumber(TextBoxRs.Text) then
-        rotatesnap = tonumber(TextBoxRs.Text)
+    if tonumber(DB.Text) then
+        rotatesnap = tonumber(DB.Text)
     else
         rotatesnap = 45
     end
@@ -1341,11 +1482,6 @@ rs.Heartbeat:Connect(function()
         game.Lighting.FogColor = fogcolor
         game.Lighting.Brightness = brightnes
     end
-    if storedp.Value <= 9 then
-        PaperCount.Text = "you have "..tostring(storedp.Value).." papers available. ".."("..tostring(storedpd.Value)..")"
-    else
-        PaperCount.Text = "you have "..tostring(storedp.Value).." papers available. (MAX)"
-    end
     if placing == true and adjtoggle == false then
         rayend.Parent = workspace
         local mousePosition = plr:GetMouse()
@@ -1355,9 +1491,9 @@ rs.Heartbeat:Connect(function()
         rayParams.FilterDescendantsInstances = {rayend}
         rayParams.IgnoreWater = true
         rayResult = workspace:Raycast(unitRay.Origin, unitRay.Direction * 500, rayParams)
-        if rayResult and tonumber(TextBoxS.Text) then
+        if rayResult and tonumber(CB.Text) then
             unitnormal = rayResult.Normal
-            local posb = Vector3.new(math.round(rayResult.Position.X/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Y/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text),math.round(rayResult.Position.Z/tonumber(TextBoxS.Text))*tonumber(TextBoxS.Text))
+            local posb = Vector3.new(math.round(rayResult.Position.X/tonumber(CB.Text))*tonumber(CB.Text),math.round(rayResult.Position.Y/tonumber(CB.Text))*tonumber(CB.Text),math.round(rayResult.Position.Z/tonumber(CB.Text))*tonumber(CB.Text))
             thingcf = CFrame.new(posb) * thingcf.Rotation
             if unitnormal ~= lastnormal and rotationsnapping == true then
                 local newcrot = CFrame.lookAt(rayend.Position,rayend.Position + unitnormal) * CFrame.Angles(math.rad(-90),0,0)
