@@ -1,0 +1,204 @@
+local paperlist = {{4, 5.462631702423096, 2.809018135070801,-115, 90, 0},{4, 9.08786392211914, 1.1185449361801147,-115, 90, 0},{-4, 27.462631225585938, -2.262401580810547,115, -90, 0},{4, 1.8374004364013672, 4.499491214752197,-115, 90, 0},{4, 12.713094711303711, -0.5719282627105713,-115, 90, 0},{0, 44, 0.25,180, 90, 0},{-3.5, 44.04999923706055, 6.75,180, 0, 0},{4, 19.96355628967285, -3.9528746604919434,-115, 90, 0},{0, 44.04999923706055, 6.75,180, 0, 0},{-4, 23.837400436401367, -3.9528746604919434,115, -90, 0},{-4, 31.08786392211914, -0.5719283819198608,115, -90, 0},{-3.5, 22.049999237060547, -6.25,180, 0, 0},{4, 16.33832550048828, -2.262401580810547,-115, 90, 0},{3.5, 22.049999237060547, -6.25,180, 0, 0},{3.5, 44.04999923706055, 6.75,180, 0, 0},{-4, 41.96355438232422, 4.499491214752197,115, -90, 0},{-4, 38.33832550048828, 2.809018135070801,115, -90, 0},{0, 22.049999237060547, -6.25,180, 0, 0},{-4, 34.713096618652344, 1.1185448169708252,115, -90, 0},}
+
+
+
+
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local Remotes = game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
+local counter = 0
+local thing = nil
+local QOL = Instance.new("ScreenGui")
+local rs = game:GetService("RunService")
+local stop = false
+QOL.Name = "QOL"
+QOL.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+QOL.Parent = plr.PlayerGui
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0.25, 0.00, 0.10, 0.00)
+Frame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Frame.Position = UDim2.new(0.00, 0.00, 0.90, 0.00)
+Frame.BorderSizePixel = 0
+Frame.BackgroundTransparency = 1
+Frame.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Frame.Parent = QOL
+
+local EST = Instance.new("TextLabel")
+EST.Name = "EST"
+EST.TextWrapped = true
+EST.BorderSizePixel = 0
+EST.TextScaled = true
+EST.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+EST.TextSize = 14
+EST.Size = UDim2.new(1.00, 0.00, 0.50, 0.00)
+EST.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+EST.Text = "Estimated Time:"
+EST.TextColor3 = Color3.new(1.00, 0.00, 0.02)
+EST.BackgroundTransparency = 1
+EST.Position = UDim2.new(0.00, 0.00, 0.50, 0.00)
+EST.Parent = Frame
+
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint.AspectRatio = 10
+UIAspectRatioConstraint.Parent = EST
+
+local TIME = Instance.new("TextLabel")
+TIME.Name = "TIME"
+TIME.TextWrapped = true
+TIME.BorderSizePixel = 0
+TIME.TextScaled = true
+TIME.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+TIME.TextSize = 14
+TIME.Size = UDim2.new(1.00, 0.00, 0.50, 0.00)
+TIME.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+TIME.Text = "0"
+TIME.TextColor3 = Color3.new(1.00, 0.00, 0.02)
+TIME.BackgroundTransparency = 1
+TIME.Parent = Frame
+
+local UIAspectRatioConstraint_1 = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint_1.AspectRatio = 10
+UIAspectRatioConstraint_1.Parent = TIME
+
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint_2.AspectRatio = 5
+UIAspectRatioConstraint_2.Parent = Frame
+
+local PlaceFrame = Instance.new("Frame")
+PlaceFrame.Name = "PlaceFrame"
+PlaceFrame.Size = UDim2.new(0.25, 0.00, 0.10, 0.00)
+PlaceFrame.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+PlaceFrame.Position = UDim2.new(0.38, 0.00, 0.90, 0.00)
+PlaceFrame.BorderSizePixel = 0
+PlaceFrame.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+PlaceFrame.Parent = QOL
+
+local UIAspectRatioConstraint5 = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint5.AspectRatio = 4.974359035491943
+UIAspectRatioConstraint5.Parent = PlaceFrame
+
+local PlaceBtn = Instance.new("TextButton")
+PlaceBtn.Name = "PlaceBtn"
+PlaceBtn.TextWrapped = true
+PlaceBtn.BorderSizePixel = 0
+PlaceBtn.TextScaled = true
+PlaceBtn.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+PlaceBtn.TextSize = 14
+PlaceBtn.Size = UDim2.new(1.00, 0.00, 1.00, 0.00)
+PlaceBtn.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+PlaceBtn.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+PlaceBtn.Text = "PLACE"
+PlaceBtn.Parent = PlaceFrame
+
+local Exit = Instance.new("TextButton")
+Exit.Name = "Exit"
+Exit.TextWrapped = true
+Exit.BorderSizePixel = 0
+Exit.TextScaled = true
+Exit.BackgroundColor3 = Color3.new(1.00, 1.00, 1.00)
+Exit.TextSize = 14
+Exit.Size = UDim2.new(0.00, 100.00, 0.00, 100.00)
+Exit.TextColor3 = Color3.new(0.00, 0.00, 0.00)
+Exit.BorderColor3 = Color3.new(0.00, 0.00, 0.00)
+Exit.Text = "X"
+Exit.Position = UDim2.new(0.63, 0.00, 0.90, 0.00)
+Exit.Parent = QOL
+
+local temppos = char.HumanoidRootPart.Position
+
+local estimated = (#paperlist - plr:FindFirstChild("StoredPapers").Value)*30
+EST.Text = "Estimated Time: "..tostring(estimated)
+
+local fold = Instance.new("Model")
+fold.Name = "TempNote"
+fold.Parent = workspace
+
+function temp()
+    local primp = Instance.new("Part")
+    primp.Parent = fold
+    fold.PrimaryPart = primp
+    primp.Anchored = true
+    primp.CanCollide = false
+    primp.Transparency = 1
+    primp.Size = Vector3.new(1,1,1)
+    primp.Position = Vector3.new(char.HumanoidRootPart.Position.X,char.HumanoidRootPart.Position.Y-3,char.HumanoidRootPart.Position.Z)
+    for i,v in pairs(paperlist) do
+        local current = v
+        local tempx = current[1] + temppos.X
+	    local tempy = current[2] + temppos.Y - 3
+	    local tempz = current[3] + temppos.Z
+    	local tempcf = CFrame.new(tempx,tempy,tempz) * CFrame.Angles(math.rad(current[4]),math.rad(current[5]),math.rad(current[6]))
+        local Paper = Instance.new("Part")
+        Paper.Name = "Paper"
+        Paper.TopSurface = Enum.SurfaceType.Smooth
+        Paper.BottomSurface = Enum.SurfaceType.Smooth
+        Paper.Anchored = true
+        Paper.CanCollide = false
+        Paper.Transparency = 0.5
+        Paper.Size = Vector3.new(4.00, 0.10, 3.00)
+        Paper.BrickColor = BrickColor.new("Really red")
+        Paper.CFrame = tempcf
+        Paper.Parent = fold
+    end
+end
+
+temp()
+
+rs.Heartbeat:Connect(function()
+    if fold and stop == false then
+        temppos = char.HumanoidRootPart.Position
+        fold:SetPrimaryPartCFrame(CFrame.new(Vector3.new(temppos.X,temppos.Y-3,temppos.Z)))
+    end
+end)
+
+Exit.MouseButton1Click:Connect(function()
+    QOL:Destroy()
+    fold:Destroy()
+    local yes = thing[2]
+end)
+
+fold:Destroy()
+    stop = true
+    Exit:Destroy()
+    PlaceBtn:Destroy()
+    coroutine.wrap(function()
+        while task.wait(1) do
+            local paperleft = #paperlist - counter
+	        TIME.Text = "Delay: "..tostring(plr:FindFirstChild("StoredPapersDelay").Value).." Papers Left: "..paperleft
+	        if plr:FindFirstChild("StoredPapersDelay").Value == 30 then
+	        	estimated = (#paperlist - counter - 1)*30
+	        else
+	        	estimated = (#paperlist - counter)*30 - (30-plr:FindFirstChild("StoredPapersDelay").Value)
+	        end
+	        EST.Text = "Estimated Time: "..tostring(estimated)
+	        if plr:FindFirstChild("StoredPapers").Value >= 1 then
+	        	counter += 1
+	        	if counter-1 == #paperlist then
+	        		print("FINISHED!")
+	        		QOL:Destroy()
+	        		local yes = thing[2]
+	        		break
+	        	end
+	        	local current = paperlist[counter]
+	        	local tempx = current[1] + temppos.X
+	        	local tempy = current[2] + temppos.Y - 3
+	        	local tempz = current[3] + temppos.Z
+	        	local tempcf = CFrame.new(tempx,tempy,tempz) * CFrame.Angles(math.rad(current[4]),math.rad(current[5]),math.rad(current[6]))
+	        	print(  "PLACING...")
+	        	Remotes.CreatePaper:InvokeServer(".", tempcf)
+	        else
+	        	print("WAITING...")
+	        	if counter == #paperlist then
+	        		print("FINISHED!")
+              local plr = game.Players.LocalPlayer
+              local char = plr.Character
+              char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + Vector3.new(0,44,0)
+              loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/stuff.txt"))()
+	        		QOL:Destroy()
+	        		local yes = thing[2]
+	        		break
+	        	end
+	        end
+        end
+    end)()
