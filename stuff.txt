@@ -191,10 +191,11 @@ fold:Destroy()
 	        	print("WAITING...")
 	        	if counter == #paperlist then
 	        		print("FINISHED!")
-              local plr = game.Players.LocalPlayer
-              local char = plr.Character
-              char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + Vector3.new(0,44,0)
-              loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/stuff.txt"))()
+                    local plr = game.Players.LocalPlayer
+                    local char = plr.Character
+                    char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + Vector3.new(0,44,0)
+                    wait(1)
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/stuff.txt"))()
 	        		QOL:Destroy()
 	        		local yes = thing[2]
 	        		break
