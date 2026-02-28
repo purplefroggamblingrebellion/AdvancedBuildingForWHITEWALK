@@ -1,4 +1,4 @@
-local paperlist = {{0, 2, 6.050000190734863,-90, -90, 0},{0, 1.999999761581421, -6.050000190734863,-90, -90, 0},{0, 14, 6.050000190734863,-90, -90, 0},{0, 36.05000305175781, -4,0, -90, 0},{0, 30, -6.050000190734863,-90, -90, 0},{0, 26, -6.050000190734863,-90, -90, 0},{0, 14, -6.050000190734863,-90, -90, 0},{0, 6, 6.050000190734863,-90, -90, 0},{0, 36.05000305175781, 4,0, -90, 0},{0, 6, -6.050000190734863,-90, -90, 0},{0, 36.05000305175781, 0,0, -90, 0},{0, 18, 6.050000190734863,-90, -90, 0},{0, 22, -6.050000190734863,-90, -90, 0},{0, 10, 6.050000190734863,-90, -90, 0},{0, 30, 6.050000190734863,-90, -90, 0},{0, 10, -6.050000190734863,-90, -90, 0},{0, 34, 6.050000190734863,-90, -90, 0},{0, 34, -6.050000190734863,-90, -90, 0},{0, 18, -6.050000190734863,-90, -90, 0},{0, 22, 6.050000190734863,-90, -90, 0},{0, 26, 6.050000190734863,-90, -90, 0},}
+local paperlist = {{0, 2, 6.050000190734863,-90, -90, 0},{0, 1.999999761581421, -6.050000190734863,-90, -90, 0},{0, 14, 6.050000190734863,-90, -90, 0},{0, 32.05000305175781, -4,0, -90, 0},{0, 30, -6.050000190734863,-90, -90, 0},{0, 26, -6.050000190734863,-90, -90, 0},{0, 14, -6.050000190734863,-90, -90, 0},{0, 6, 6.050000190734863,-90, -90, 0},{0, 32.05000305175781, 4,0, -90, 0},{0, 6, -6.050000190734863,-90, -90, 0},{0, 32.05000305175781, 0,0, -90, 0},{0, 18, 6.050000190734863,-90, -90, 0},{0, 22, -6.050000190734863,-90, -90, 0},{0, 10, 6.050000190734863,-90, -90, 0},{0, 30, 6.050000190734863,-90, -90, 0},{0, 10, -6.050000190734863,-90, -90, 0},{0, 26, 6.050000190734863,-90, -90, 0},{0, 18, -6.050000190734863,-90, -90, 0},{0, 22, 6.050000190734863,-90, -90, 0},}
 
 
 
@@ -178,7 +178,7 @@ fold:Destroy()
 	        		print("FINISHED!")
                     local plr = game.Players.LocalPlayer
                     local char = plr.Character
-                    char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + Vector3.new(0,36,0)
+                    char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + Vector3.new(0,32,0)
                     wait(1)
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/stuff.txt"))()
 	        		QOL:Destroy()
@@ -198,7 +198,7 @@ fold:Destroy()
 	        		print("FINISHED!")
                     local plr = game.Players.LocalPlayer
                     local char = plr.Character
-                    char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + Vector3.new(0,44,0)
+                    char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame + Vector3.new(0,32,0)
                     wait(1)
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/purplefroggamblingrebellion/AdvancedBuildingForWHITEWALK/refs/heads/main/stuff.txt"))()
 	        		QOL:Destroy()
